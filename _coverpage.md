@@ -1,6 +1,6 @@
 <!-- _coverpage.md -->
 
-![logo](./cover.png)
+![logo](./cover.svg)
 
 # The IT things I learned
 
@@ -10,3 +10,4 @@
 
 [GitHub](https://github.com/wahyd4/knowledge-mind-mapping)
 [Get Started](#knowledge-mind-mapping)
+

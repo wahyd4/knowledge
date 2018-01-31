@@ -1,7 +1,7 @@
 <!-- docs/_sidebar.md -->
 
 - [Home](/)
-- [**Go**](categories/go.md)
+- [Go](categories/go.md)
 - [Java](golang.md)
 - [JavaScript](golang.md)
 - [Ruby](golang.md)
@@ -13,4 +13,4 @@
 - [Web Scraping](golang.md)
 - [Devops](golang.md)
 - [Web](golang.md)
-- [Success Team Work](golang.md)
+- [Success Team Work](categories/team-work.md)
