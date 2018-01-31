@@ -11,6 +11,6 @@
 - [Database](golang.md)
 - [Application](golang.md)
 - [Web Scraping](golang.md)
-- [Devops](golang.md)
-- [Web](golang.md)
+- [Devops](categories/devops.md)
+- [Web](categories/web.md)
 - [Success Team Work](categories/team-work.md)
