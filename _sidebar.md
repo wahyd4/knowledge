@@ -1,0 +1,16 @@
+<!-- docs/_sidebar.md -->
+
+- [Home](/)
+- [**Go**](categories/go.md)
+- [Java](golang.md)
+- [JavaScript](golang.md)
+- [Ruby](golang.md)
+- [Interview](golang.md)
+- [Software Design](golang.md)
+- [Message Queue](golang.md)
+- [Database](golang.md)
+- [Application](golang.md)
+- [Web Scraping](golang.md)
+- [Devops](golang.md)
+- [Web](golang.md)
+- [Success Team Work](golang.md)

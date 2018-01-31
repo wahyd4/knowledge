@@ -6,4 +6,3 @@ The File format is in [MindNode](https://mindnode.com/)
 
 ## Preview
 
-![my knowledge mind mapping image](./Knowledge.png)
