@@ -149,6 +149,9 @@
 			- add a remote repo
 	- branch
 		- list all the branchs
+	- mv Rename/move files and folder with git history records
+
+      e.g. git mv -k ./a/b ./c/d   option `k` would avoid the "can not move directory into itself" error.
 - oh-my-zsh
 - IDE/tools
 	- Intellij
