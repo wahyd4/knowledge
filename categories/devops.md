@@ -57,7 +57,10 @@
 	- Bridge
 	- Host
 - Tips
-	- difference between cmd and entrypoint
+	- difference between `cmd` and `entrypoint`
+	- difference between `copy` and `add`
+
+        Basically they are similar, copy files and folder to destination. While ADD has some features (like local-only tar extraction and remote URL support) that are not immediately obvious. Consequently, the best use for ADD is local tar file auto-extraction into the image, as in ADD rootfs.tar.xz /.
 - CMD
 	- has three forms
 		- CMD ["executable","param1","param2"]
