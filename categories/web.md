@@ -1,4 +1,4 @@
-## HTML
+# HTML
 
 - HTML5
 	- audio
@@ -15,7 +15,7 @@
 	- canvas
 - HTTPS
 
-## CSS3
+# CSS3
 
 - transition
 - transaction
@@ -25,29 +25,29 @@
 - box-shadow
 - svg
 
-## CORS
+# CORS
 
 -  Nginx proxy
 - Server add headers
 
-## CDN
+# CDN
 
 - Reduce request amount
 - Reduce server network traffic
 - Speed up load
 
-## Websocket
+# Websocket
 
 - Pusher
 - Socket.IO
 
-## json-schema
+# json-schema
 
 - Describe data format
 - Clear, machine and human readable
 - Complete structure validation
 
-## Auth Related
+# Auth Related
 
 - session
 	- store session_id in cookie, server side has a map in memory
@@ -56,9 +56,9 @@
 - cookie
 - local storage
 
-## Browser
+# Browser
 
-## CSS
+# CSS
 
 - tips
 

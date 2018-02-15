@@ -1,16 +1,16 @@
-## AWS
+# AWS
 - EC2
 - EC2 container
 - Cloudfront
 - S3
 - RDS
 
-## CI
+# CI
 - Jenkins
 - Gitlab CI
 - Travis
 
-## Docker
+# Docker
 - Orchestration
 	- Rancher
 	- Kubernetes
@@ -86,7 +86,7 @@
 	- docker daemon attack surface
 	- kernel security features
 
-## Linux
+# Linux
 - ssh
 - IP table
 - Cron job
@@ -106,30 +106,30 @@
 	- mosh
 		- auto reconnect ssh
 
-## Everything is code
+# Everything is code
 - infrastructure as code
 - CI config as code
 - Dockerfile
 
-## CD
+# CD
 - Capistrano
 - Ansible
 - Puppet
 
-## HA High Availability
+# HA High Availability
 - LB - haproxy
 - Keepalived -- vrrp
 	- Nginx + Keepalived
 - Heartbeat
 
-## Network
+# Network
 - IP
 	- Private IP Addresses
 		- 10.0.0.0 – 10.255.255.255
 		- 172.16.0.0 – 172.31.255.255
 		- 192.168.0.0 – 192.168.255.255
 
-## tools
+# tools
 - git
 	- cherrypick
 	- rebase

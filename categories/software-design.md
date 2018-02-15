@@ -1,5 +1,5 @@
 
-## Refactoring
+# Refactoring
 
 - when to refactor
 
@@ -11,7 +11,7 @@
 	- temporary variable
 	- coupling
 
-## Microservice
+# Microservice
 
 - benefits
 
@@ -28,7 +28,7 @@
 	- Deployment complexity
 		- To deploy different types of services
 
-## OOP
+# OOP
 
 - Polymorphism
 
@@ -46,7 +46,7 @@
 	- Interface segregation
 	- Dependency inversion
 
-## Functional programming
+# Functional programming
 
 - pure functions
 
@@ -59,29 +59,39 @@
 - avoid side effects
 
 
-## Serverless
+# Serverless
 
 - Lambda
 
 	- A **lambda** is just an anonymous function - a function defined with no name
 
-## Closure
+# Closure
 
 - a function value that references variables from outside its body
 	- In Javascript, not all anonymous function are lamdba, and vise verse
 
-## UML
+# Event Sourcing and Command Query Responsibility Segregation (CQRS)
+
+Every changes you made to the system is a event, events are been persisted and can be replayed to generate the materialized view.
+
+In his book "Object Oriented Software Construction," Betrand Meyer introduced the term "Command Query Separation" to describe the principle that an object's methods should be either commands or queries. A query returns data and does not alter the state of the object; a command changes the state of an object but does not return any data. The benefit is that you have a better understanding what does, and what does not, change the state in your system.
+
+**More**:
+
+- [Reference 2: Introducing the Command Query Responsibility Segregation Pattern](https://msdn.microsoft.com/en-us/library/jj591573.aspx)
+
+# UML
 
 - many_to_many
 - one to many
 
 
-## Java Design pattern
+# Java Design pattern
 
 - [https://github.com/iluwatar/java-design-patterns](https://github.com/iluwatar/java-design-patterns)
 
 
-## some tips
+# some tips
 
 - concurrency vs parallelism
 

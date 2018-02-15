@@ -1,4 +1,4 @@
-## Agile
+# Agile
 
 - Retrospective
 - Iteration meeting
@@ -7,9 +7,9 @@
 - Pair programming
 - Instant feedback
 
-## Kanban
+# Kanban
 
-## Tools
+# Tools
 
 - ThoughtWorks Tech Radar
 - CI
@@ -41,7 +41,7 @@
 	- High spped
 		- Team members can address problems more quickly
 
-## Test
+# Test
 
 - unit test
 - integration test

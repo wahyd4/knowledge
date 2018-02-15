@@ -1,4 +1,4 @@
-## ES 6/ES 2015
+# ES 6/ES 2015
 
 - Arrow function
 	- Array function doesn’t create new this, it grabs this from its surrounding instead.
@@ -90,7 +90,7 @@
 		  }
 		  getGithubUser('mbeaudru').then(user => console.log(user)); // logging user response - cannot use await syntax since this code isn't in async function
 
-## Node.js
+# Node.js
 
 - Npm
 
@@ -100,7 +100,7 @@
 
 - Stream
 
-## This
+# This
 
 - Refers who calls
      ```javascript
@@ -125,9 +125,9 @@
      ```
 	- [http://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/](http://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/)
 
-## Closure
+# Closure
 
-## Frameworks
+# Frameworks
 
 - Ionic
 
@@ -160,9 +160,9 @@
 	- Action
 	- Dispatch
 
-## Use promise to avoid nested callbacks.
+# Use promise to avoid nested callbacks.
 
-## tips
+# tips
 
 - object literal
 -   ```javascript
@@ -172,22 +172,22 @@
 	  });
     ```javascript
 
-## Application
+# Application
 
-## Search
+# Search
 - ElasticSearch
 	- Logstash
 	- Kibana
 
-## APM
+# APM
 - Newrelic
 - Pinpoint
 
-## Monitor
+# Monitor
 - Bosun
 - Prometheus
 
-## API
+# API
 
 - RPC(remote procedure call)
 	- disadvantages
@@ -237,6 +237,6 @@
 		- call remote like local method, and support multiple language
 		- protobuf serialization and deserialization is faster than JSON
 
-## Log and Error
+# Log and Error
 
 - Sentry

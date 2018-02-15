@@ -1,4 +1,4 @@
-## Background jobs
+# Background jobs
 - Resque
 	- Single threaded process
 - Delayed Job
@@ -12,7 +12,7 @@
           }
       ```
 
-## Test
+# Test
 - Unit Test
 	- Mini Test
 	- RSpec
@@ -22,18 +22,18 @@
 - Mock
 	- Mocha
 
-## Auth
+# Auth
 - OmniAuth
 - Devise
 
-## Web Server
+# Web Server
 - Thin
 - Unicorn
 - Puma
 - Passenger
 - Pow
 
-## Language
+# Language
 - Syntax
 	- lambda
 	- yield
@@ -57,15 +57,15 @@
 	- can't extend
 - Class
 
-## Code analysis
+# Code analysis
 - Rubocop
 
-## GC
+# GC
 - Minor GC
 - Major GC
 - GC.stat
 
-## Web frameworks
+# Web frameworks
 - Sintra
 - Ruby on Rails
 	- ORM
@@ -75,6 +75,6 @@
 	- Assets pipeline
 	- Rails console
 
-## Gem mirrors
+# Gem mirrors
 - [http://mirrors.aliyun.com/rubygems/](http://mirrors.aliyun.com/rubygems/)
 - [https://gems.ruby-china.org](https://gems.ruby-china.org)

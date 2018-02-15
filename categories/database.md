@@ -1,11 +1,11 @@
-## Relation
+# Relation
 - Mysql
 - Postgres
 - Microsoft SQL Server
 - Oracle
 - Sqlite
 
-## NoSql
+# NoSql
 - Monodb
 	- Replica Set
 		- Primary
@@ -17,7 +17,7 @@
 - Hbase
 - Cassendra
 
-## SQL
+# SQL
 - Index
 	- Index is unique but not mandatory
 - join
@@ -32,10 +32,10 @@
 			- will impacted by time zone
 			- index by timestamp will be faster than datetime due to 4 bytes.
 
-## Message Queue
+# Message Queue
 
-## Rabbitmq
+# Rabbitmq
 
-## activeMQ
+# activeMQ
 
-## Redis
+# Redis

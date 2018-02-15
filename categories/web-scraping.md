@@ -1,11 +1,11 @@
-## A good scraper
+# A good scraper
 
 - content downloading, download images, contents and so on.
 - links retrieve, find new links
 - URL management, avoid endless loop
 - content analysis and management, export as csv or chart.
 
-## good frameworks
+# good frameworks
 
 - colly
 	- https://github.com/asciimoo/colly
@@ -14,7 +14,7 @@
 - scrapy
 	- [https://github.com/scrapy/scrapy](https://github.com/scrapy/scrapy)
 
-## anti scraper blocking
+# anti scraper blocking
 
 - multiple ips
 - different headers
@@ -24,7 +24,7 @@
 - verification code -> ocr
 - fetch data from mobile webpage
 
-## anti scraper
+# anti scraper
 
 - block ip
 - http headers, such as user-agent
