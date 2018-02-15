@@ -1,46 +1,62 @@
-## Language
+# Language
 
-### pass pointer or value
+## pass pointer or value
 - value: Variable must not be modified
 - Variable is a large struct  then prefer pointer
 - Variable is a map or slice then prefer value
 - Passing by value often is cheaper
 
-### struct
+## struct
 
 - make
-    - make(T, args) -> T
+```go
+make(T, args) -> T
+```
 - new
-    - new(T) -> *T
+```go
+new(T) -> *T
+```
 - a := T{}
 
-### Slice
+## array
+```go
+[]string
+[]string{"a", "b"}
+[...]string{"a","b"}
+```
+Array has a exactly length, can't be modified.
+## slice
 
-- Auto scale length
-    - new([]int)
-    - make([]int, 2, 5)
+- Auto increment length
+```go
+new([]int)
+make([]int, 2, 5)
+```
 
-### Go routine
+## Go routine
 
 - you can run more goroutine vs thread
-- go routine have a fater startup time than thread
+- go routine have a faster start up time than thread
 - go routine come with built-in primitives to communicate safely by using channels
 
-### Closure
+## Closure
 
-### Channel
-
-- messages := make(chan string)
-        // _Send_ a value into a channel using the `channel <-`
-        go func() { messages <- "ping" }()
-        // channel. Here we'll receive the `"ping"` message
-        msg := <-messages
+## Channel
+- Normal channel
+```go
+messages := make(chan string)
+// _Send_ a value into a channel using the `channel <-`
+go func() { messages <- "ping" }()
+// channel. Here we'll receive the `"ping"` message
+msg := <-messages
+```
 
 - buffered channel
+```go
+ch := make(chan Task, 3)
+```
 
-    - ch := make(chan Task, 3)
-
-### Sync
+## Sync
 
 - atomic
 - Mutex
@@ -48,17 +64,18 @@
     - mutex.Lock()
     - mutx.Unlock()
 - string literals
-	- \`aaa bbb ccc\`
+
+    \`aaa bbb ccc\`
 - panic / recover
 
-## Frameworks
+# Frameworks
 
-### db
+## db
 
 - xorm
 - gorm
 
-### web
+## web
 
 - beego
 - mux
@@ -66,7 +83,7 @@
 - go kit
     - full stack micro service framework like spring boot
 
-### tools
+## tools
 
 - profiler
     - go-wrk(wrk)
@@ -74,21 +91,22 @@
     - go-torch
         - Stochastic flame graph profiler
 - test
-    - github.com/stretchr/testify
+    - Testify <http://github.com/stretchr/testify>
+    - Ginkgo <http://onsi.github.io/ginkgo/>
 
-## Tips
+# Tips
 
-### slice
+## slice
 
 - byte* array //actual data
 - uintgo len
 - uintgo cap
 
-### map
+## map
 
 - implement by hash table
 
-### Go has no generics
+## Go has no generics
 
 - performance
 - complexity
@@ -98,7 +116,7 @@
     - use type assertions
     - use reflection
 
-### Modify item in range
+## Modify item in range
 
 - use the array index instead of the value
 ```go
@@ -110,45 +128,61 @@
         array[idx].field = "foo"
     }
 ```
-### merge two array
+## merge two array
 
 - a = append(a, b…)
     - must add … to b, otherwise you can only add one item
 
-### error handling
+## error handling
 
 - error type assertion
-    - if serr, ok := err.(*json.SyntaxError); ok {}
+```go
+    if serr, ok := err.(*json.SyntaxError); ok {}
+```
 
 - better error handling
 
     - custom error type
-        - type appError struct {
-                Error   error
-                Message string
-                Code    int
-            }
-
+```go
+type appError struct {
+    Error   error
+    Message string
+    Code    int
+}
+```
     - concat error check
-        - if err1() != nil || err2() != nil {}
+```go
+if err1() != nil || err2() != nil {}
+```
     - some error constants
-        - errNotFound = errors.New("Item not found")
-            switch err {
-                    case errNotFound:
-            }
+```go
+errNotFound = errors.New("Item not found")
+switch err {
+    case errNotFound:
+}
+```
 
-### date format
-
-- t := time.Now()
-    fmt.Println(t.String())
-    fmt.Println(t.Format("2006-01-02 15:04:05"))
+## date format
+```go
+t := time.Now()
+fmt.Println(t.String())
+fmt.Println(t.Format("2006-01-02 15:04:05"))
+```
 
 - var _ InterfaceX = &InterfaceXImplementation{}
 	- make sure InterfaceX’s implementation works
 
-## commands
+## reference types in go
+* map
+* channel
+* slice
 
-### test
+## value types
+* Array
+
+# commands
+
+## test
 
 - go test ./...
     -  run all tests in current directory and all of its subdirectories
