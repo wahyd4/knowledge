@@ -12,5 +12,6 @@
 - [Application](categories/application.md)
 - [Web Scraping](categories/web-scraping.md)
 - [Devops](categories/devops.md)
+    - [Docker](categories/devops/docker.md)
 - [Web](categories/web.md)
 - [Success Team Work](categories/team-work.md)
