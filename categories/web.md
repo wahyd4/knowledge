@@ -3,6 +3,8 @@
 - [HTML](#html)
 - [HTTP 2](#http-2)
     - [HTTP server push](#http-server-push)
+- [HTTP server-sent events](#http-server-sent-events)
+        - [Links](#links)
 - [CSS3](#css3)
 - [CORS](#cors)
 - [CDN](#cdn)
@@ -20,6 +22,20 @@
  HTTP/2 Push is not a mechanism for the server to notify things to the browser. Instead, pushed contents are used by the browser when it may have otherwise produced a request to get the resource anyway. But if the browser does not request the resource, the pushed contents become wasted bandwidth.
 
 Server push some related resource before the browser sends the request. .e.g. Browser request index.html, and then server response with index.html and also take the initiative to push style.css and index.js to frontend.
+
+Frames:
+
+* HEADERS
+* PUSH_PROMISE
+* DATA
+* RST_STREAM
+
+
+# HTTP server-sent events
+
+
+### Links
+* [A Comprehensive Guide To HTTP/2 Server Push](https://www.smashingmagazine.com/2017/04/guide-http2-server-push/)
 
 
 # CSS3
