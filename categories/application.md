@@ -92,6 +92,7 @@ Links:
 * JSON-RPC specification: <http://www.jsonrpc.org/specification>
 * O API - an alternative to REST APIs
 : <https://hackernoon.com/o-api-an-alternative-to-rest-apis-e9a2ed53b93c>
+
 # Log and Error
 
 ## Sentry
