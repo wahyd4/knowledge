@@ -91,7 +91,7 @@ In his book "Object Oriented Software Construction," Betrand Meyer introduced th
 - [https://github.com/iluwatar/java-design-patterns](https://github.com/iluwatar/java-design-patterns)
 
 
-# some tips
+# Some tips
 
 - concurrency vs parallelism
 
