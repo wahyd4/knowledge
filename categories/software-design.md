@@ -70,7 +70,22 @@
 - a function value that references variables from outside its body
 	- In Javascript, not all anonymous function are lamdba, and vise verse
 
-# Event Sourcing and Command Query Responsibility Segregation (CQRS)
+# Event Sourcing
+
+## Kafka
+
+Apache Kafka is a distributed streaming platform
+
+![Kafka APIs](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/kafka-apis.png)
+
+There are 4 core APIs in kafka:
+
+* Producer API
+* Consumer API
+* Streams API
+* Connector API
+
+# Command Query Responsibility Segregation (CQRS)
 
 Every changes you made to the system is a event, events are been persisted and can be replayed to generate the materialized view.
 
