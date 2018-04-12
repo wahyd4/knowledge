@@ -3,6 +3,8 @@
 ## Orchestration
 
 ### Rancher
+
+Easy to use, just drag and drop things.
 ### Kubernetes
 
 - Pod
@@ -51,6 +53,17 @@
 Links:
 * [Kubernetes NodePort vs LoadBalancer vs Ingress? When should I use what?](https://medium.com/google-cloud/kubernetes-nodeport-vs-loadbalancer-vs-ingress-when-should-i-use-what-922f010849e0)
 
+#### Zero down time deployment
+Set strategy type to `RollingUpdate` instead of `Recreate`
+```yaml
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 50%
+      maxSurge: 1
+```
 ## Benefits
 
 	- escape the app dependency matrix

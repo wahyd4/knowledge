@@ -53,6 +53,9 @@
 		- 172.16.0.0 – 172.31.255.255
 		- 192.168.0.0 – 192.168.255.255
 
+## OSI Model( 7 layers network)
+
+![OSI Models](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/osi-model.png)
 # tools
 - git
 	- cherrypick
