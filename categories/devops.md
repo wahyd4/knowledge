@@ -31,14 +31,27 @@
 		- auto reconnect ssh
 
 # Everything is code
-- infrastructure as code
+- Infrastructure as code
 - CI config as code
 - Dockerfile
 
 # CD
-- Capistrano
-- Ansible
-- Puppet
+![OSI Models](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/iac.png)
+## Capistrano
+## Ansible
+## Puppet
+## Terraform
+
+Terraform use a declarative language to describe the current state of infrastructure, and there is no server side agent installed.
+
+### Basic steps
+```bash
+# go to the folder which stores the environment credentials
+terraform init # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
+terraform get # Downloads and installs modules that defined by configuration files
+terraform plan # Kind of try run, you will what kind of changes you will have
+terraform apply # Apply changes to cluster
+```
 
 # HA High Availability
 - LB - haproxy
