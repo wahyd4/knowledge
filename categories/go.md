@@ -192,3 +192,11 @@ fmt.Println(t.Format("2006-01-02 15:04:05"))
     - run all tests import path prefixed with foo:
 - go test ...
     - run all tests in your $GOPATH:
+
+## REPL
+
+REPL stands for read eval print loop, basically it just like the irb in Ruby.
+
+Wiki: <https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop>
+
+* gore <https://github.com/motemen/gore>
