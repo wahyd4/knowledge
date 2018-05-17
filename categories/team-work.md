@@ -7,6 +7,19 @@
 - Pair programming
 - Instant feedback
 
+## Retrospective
+
+### Steps
+* Review actions of last retro
+* Draw a timeline of events happy between last retro and now (Optional, some people say this can help team to get clear mind about what happened and what are the important things)
+* Choose the retro format. The most simple and popular one is(good, bad, questions)
+* Around 5 minutes to write down your idea
+* Quick go through all the cards and group the cards
+* Vote cards
+* Pick the cards which get most votes and talk about them
+* Write down the action is requires to
+
+
 ## Good practices
 
 ### In the team
