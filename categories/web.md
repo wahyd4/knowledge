@@ -15,7 +15,7 @@
 - [CSS](#css)
 
 # HTTP 2
- ## HTTP server push
+## HTTP server push
 
  HTTP/2 Push allows a web server to send resources to a web browser before the browser gets to request them. It is, for the most part, a performance technique that can help some websites load faster.
 
@@ -81,6 +81,13 @@ Frames:
 
 # Browser
 
+## How browser works?
+
+* How browser render web page
+[how browser render web page](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/how-browser-works.png)
+
+* The flow diagram when you access a website
+[Flow](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/http-flow.png)
 # CSS
 
 - tips
