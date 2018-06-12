@@ -61,8 +61,18 @@ Frames:
 
 # Websocket
 
+WebSocket is a computer communications protocol, providing full-duplex communication channels over a single TCP connection. The WebSocket protocol was standardized by the IETF as RFC 6455 in 2011, and the WebSocket API in Web IDL is being standardized by the W3C. WebSocket is a different TCP protocol from HTTP.
+
+## Frameworks and tools
+
 - Pusher
 - Socket.IO
+- Pubnub
+
+## How Websocket works
+
+![Diagram](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/websocket-diagram.png)
+
 
 # json-schema
 
@@ -83,10 +93,12 @@ Frames:
 
 ## How browser works?
 
-* How browser render web page
+How browser render web page
+
 ![how browser render web page](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/how-browser-works.png)
 
-* The flow diagram when you access a website
+The flow diagram when you access a website
+
 ![Flow](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/http-flow.jpg)
 # CSS
 
