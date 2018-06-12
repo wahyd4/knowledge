@@ -4,7 +4,7 @@
 - [HTTP 2](#http-2)
     - [HTTP server push](#http-server-push)
 - [HTTP server-sent events](#http-server-sent-events)
-        - [Links](#links)
+    - [Links](#links)
 - [CSS3](#css3)
 - [CORS](#cors)
 - [CDN](#cdn)
@@ -84,10 +84,10 @@ Frames:
 ## How browser works?
 
 * How browser render web page
-[how browser render web page](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/how-browser-works.png)
+![how browser render web page](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/how-browser-works.png)
 
 * The flow diagram when you access a website
-[Flow](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/http-flow.png)
+![Flow](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/http-flow.jpg)
 # CSS
 
 - tips
