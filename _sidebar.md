@@ -17,5 +17,6 @@
     - [Incident Management](categories/devops/incident.md)
 - [Web](categories/web.md)
 - [Success Team Work](categories/team-work.md)
+- [Uncategorised](categories/uncategorised.md)
 - English
   - [Business English Speaking for Professionals](categories/english/business-spoken-english.md)
