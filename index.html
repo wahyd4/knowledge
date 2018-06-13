@@ -7,17 +7,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <!-- <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css"> -->
   <!-- Theme: Defaults -->
-  <!-- <linkrel="stylesheet" href="https://unpkg.com/docsify-themeable/dist/css/theme-defaults.css"> -->
+  <link rel="stylesheet" href="https://unpkg.com/docsify-themeable/dist/css/theme-defaults.css">
 
   <style>
-    body {
-      font-size: 16px;
-      font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
-    }
-    .sidebar ul li a {
-      font-size: 16px;
+    :root {
+      /* Reduce the font size */
+      --base-font-size: 16px;
+
+      /* Change the theme color hue */
+      --theme-hue: 225;
+
+      /* Change the sidebar bullets */
+      --sidebar-nav-link-before-content: '-';
     }
 
   </style>
