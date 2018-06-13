@@ -1,3 +1,7 @@
+# Objects inheritances
+
+![objects](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/Knowledge.mindnode/resources/0F278DB4-4103-44BA-BCBF-EB702C63D097.png)
+
 # Background jobs
 - Resque
 	- Single threaded process
@@ -66,8 +70,14 @@
 - GC.stat
 
 # Web frameworks
-- Sintra
-- Ruby on Rails
+## Sintra
+
+## Ruby on Rails
+
+### How Rails application works
+
+![Rails flow](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/Knowledge.mindnode/resources/01193273-3E02-4AB0-ADE9-037F1577CCB0.png)
+
 	- ORM
 		- Active record
 		- Mongoid

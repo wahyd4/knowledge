@@ -10,6 +10,7 @@
 - System.gc()
 
 ## JVM
+
 - Method Area
 	- Class name, Constant, static Constant, Class object
 - Heap
@@ -25,6 +26,8 @@
 - Native method stack
 - program counter
 
+### JVM insight
+![jvm insight](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/Knowledge.mindnode/resources/0AF6D004-6074-4396-94A0-6141B398BC94.png)
 ## Spring
 - Spring boot
 	- Rest controller
@@ -79,13 +82,20 @@
 - event listener
 	- [https://stackoverflow.com/questions/6270132/create-a-custom-event-in-java](https://stackoverflow.com/questions/6270132/create-a-custom-event-in-java)
 
-## JAVA se
-- modifier
-	- public
-	- no modifier
-	- protected
-	- priivate
-- NIO
+## JAVA SE
+
+### modifier
+
+	* public
+	* no modifier
+	* protected
+	* priivate
+
+### Java modifier diagram
+
+![Java modifier diagram](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/Knowledge.mindnode/resources/AF058A2F-FEB9-4C6A-837C-2DFF0950CA6C.png)
+
+### NIO
 	- Channels
 	- A channel is a kind of stream, from the channel data can be read into a buffer.
 	- channel implementations

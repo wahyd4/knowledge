@@ -32,6 +32,10 @@
 			- will impacted by time zone
 			- index by timestamp will be faster than datetime due to 4 bytes.
 
+## SQL join diagram
+
+![sql join diagram](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/Knowledge.mindnode/resources/FC67BE77-F837-4207-B3C4-45205F7C9C40.png)
+
 # Message Queue
 
 # Rabbitmq

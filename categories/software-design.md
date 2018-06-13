@@ -100,6 +100,12 @@ In his book "Object Oriented Software Construction," Betrand Meyer introduced th
 - many_to_many
 - one to many
 
+![example](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/Knowledge.mindnode/resources/18F27D1D-F7CB-4E8B-BE47-90847CAEBC91.png)
+
+## One UML example
+
+![uml](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/Knowledge.mindnode/resources/656E28B3-4CCA-40F8-A95A-0F901E61AFA1.png)
+
 
 # Java Design pattern
 
