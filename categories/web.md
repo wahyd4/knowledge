@@ -2,19 +2,19 @@
 
 ## HTTP Status code
 
-* 200 OK
-* 201 created
-* 204 No content, The server has successfully fulfilled the request and that there is no additional content to send in the response payload body.
-* 301 Moved Permanently
-* 400 Bad request, the request body syntactically wrong
-* 401 Unauthorized, generally means you didn't login or specify the credential
-* 403 Forbidden, we know who you are, but you just don't have enough rights
-* 415 Unsupported Media Type，the content type consumer passed in is not valid
-* 422 Unprocessable Entity, means the request body is syntactically correct but semantically incorrect
-* 500 Internal error, some unknown or unhandled error happened from the server side
-* 502 Bad Gateway, The server, while acting as a gateway or proxy, received an invalid response from an inbound server it accessed while attempting to fulfill the request.
-* 503 Service Unavailable, The server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay.
-* 504 Gateway timeout, The server, while acting as a gateway or proxy, did not receive a timely response from an upstream server it needed to access in order to complete the request.
+* `200` OK
+* `201` created
+* `204` No content, The server has successfully fulfilled the request and that there is no additional content to send in the response payload body.
+* `301` Moved Permanently
+* `400` Bad request, the request body syntactically wrong
+* `401` Unauthorized, generally means you didn't login or specify the credential
+* `403` Forbidden, we know who you are, but you just don't have enough rights
+* `415` Unsupported Media Type，the content type consumer passed in is not valid
+* `422` Unprocessable Entity, means the request body is syntactically correct but semantically incorrect
+* `500` Internal error, some unknown or unhandled error happened from the server side
+* `502` Bad Gateway, The server, while acting as a gateway or proxy, received an invalid response from an inbound server it accessed while attempting to fulfill the request.
+* `503` Service Unavailable, The server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay.
+* `504` Gateway timeout, The server, while acting as a gateway or proxy, did not receive a timely response from an upstream server it needed to access in order to complete the request.
 
 
 ## HTTP 2
