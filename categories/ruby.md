@@ -1,6 +1,6 @@
 # Objects inheritances
 
-![objects](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/Knowledge.mindnode/resources/0F278DB4-4103-44BA-BCBF-EB702C63D097.png)
+![objects](/Knowledge.mindnode/resources/0F278DB4-4103-44BA-BCBF-EB702C63D097.png)
 
 # Background jobs
 - Resque
@@ -69,6 +69,34 @@
 - Major GC
 - GC.stat
 
+# Bundler
+
+## Use group in bundler
+
+```ruby
+# These gems are in the :default group
+gem 'nokogiri'
+gem 'sinatra'
+
+gem 'wirble', :group => :development
+
+group :test do
+  gem 'faker'
+  gem 'rspec'
+end
+
+group :test, :development do
+  gem 'capybara'
+  gem 'rspec-rails'
+end
+
+gem 'cucumber', :group => [:cucumber, :test]
+```
+when you install bundles, you can do
+
+```bash
+bundle install --without test development
+```
 # Web frameworks
 ## Sintra
 
