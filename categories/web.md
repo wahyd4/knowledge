@@ -103,12 +103,14 @@ How browser render web page
 The flow diagram when you access a website
 
 ![Flow](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/http-flow.jpg)
+
 # CSS
 
-- tips
+##  tips
 
-	- inline element can’t set width, modify the display to inline-block
-- inline element
+  * inline element can’t set width, modify the display to inline-block
+
+## inline element
 	* i
 	* span
 	* a
@@ -118,3 +120,38 @@ The flow diagram when you access a website
 	* button
 	* textarea
 	* br
+
+## CSS custom properties(variables)
+
+```css
+# global variable
+:root {
+  font-size: 16px;
+}
+element {
+  --main-bg-color: brown;
+}
+```
+Then you use it like:
+
+```css
+  element {
+    background-color: var(--main-bg-color);
+  }
+```
+
+Some advanced usage, you can have default value when variable is not set
+
+```css
+.two {
+  color: var(--my-var, red); /* Red if --my-var is not defined */
+}
+
+.three {
+  background-color: var(--my-var, var(--my-background, pink)); /* pink if my-var and --my-background are not defined */
+}
+
+.three {
+  background-color: var(--my-var, --my-background, pink); /* Invalid: "--my-background, pink" */
+}
+```
