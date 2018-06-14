@@ -1,6 +1,6 @@
 # Objects inheritances
 
-![objects](/Knowledge.mindnode/resources/0F278DB4-4103-44BA-BCBF-EB702C63D097.png)
+![objects](https://toozhao.com/knowledge-mind-mapping/Knowledge.mindnode/resources/0F278DB4-4103-44BA-BCBF-EB702C63D097.png)
 
 # Background jobs
 - Resque
@@ -71,7 +71,7 @@
 
 # Bundler
 
-## Use group in bundler
+## Use groups in bundler
 
 ```ruby
 # These gems are in the :default group
