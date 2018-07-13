@@ -1,11 +1,9 @@
-# Docker
+# Orchestration
 
-## Orchestration
-
-### Rancher
+## Rancher
 
 Easy to use, just drag and drop things.
-### Kubernetes
+## Kubernetes
 
 - Pod
     - Single container
@@ -44,7 +42,7 @@ Easy to use, just drag and drop things.
     - Failed
         - the volume has failed its automatic reclamation
 
-#### Several ways to access a service inside Kubernetes cluster
+### Several ways to access a service inside Kubernetes cluster
 * ClusterIP, Can only be accessed inside the cluster. You can access inside `kubectl proxy`
 * NodePort, You can access the service by a specific public port between `30000–32767`, if the cluster server IP changes, then your service' endpoint url changes.
 * LoadBalancer, it's kind of external service, all the requests go through the loadbalancer. Every service needs a new IP for this.
@@ -53,7 +51,7 @@ Easy to use, just drag and drop things.
 Links:
 * [Kubernetes NodePort vs LoadBalancer vs Ingress? When should I use what?](https://medium.com/google-cloud/kubernetes-nodeport-vs-loadbalancer-vs-ingress-when-should-i-use-what-922f010849e0)
 
-#### Zero down time deployment
+### Zero down time deployment
 Set strategy type to `RollingUpdate` instead of `Recreate`
 ```yaml
 spec:
@@ -64,16 +62,31 @@ spec:
       maxUnavailable: 50%
       maxSurge: 1
 ```
-## Benefits
+## Some useful commands
+
+```bash
+
+kubectl config set-context context-name --namespace default-namespace-name #default active context
+kubectl config view #view config
+kubectl get nodes #get nodes
+kubectl get namespaces #get all namespaces
+kubectl get pods #get pods
+kubectl get deployments #get deployments
+kubectl get services #get services
+kubectl get ingress #get ingresses
+
+```
+
+# Benefits
 
 	- escape the app dependency matrix
 	- Solve the environment issue. it works on my machine.
-## Network
+# Network
 
 - Bridge
 - Host
 
-## Tips
+# Tips
 
 	- difference between `cmd` and `entrypoint`
 	- difference between `copy` and `add`
