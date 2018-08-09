@@ -10,26 +10,6 @@
 - Gitlab CI
 - Travis
 
-# Linux
-- ssh
-- IP table
-- Cron job
-- ps aux
-- tail
-- nohup
-- df -h
-- free
-- Tips
-	- Change timezone
-		- TZ=Asia/Shanghai;ln -snf /usr/share/zoneinfo/$TZ /etc/localtime
-	- Check release
-		- cat /etc/*-release
-- Packages
-	- htop
-		- like top, but more
-	- mosh
-		- auto reconnect ssh
-
 # Everything is code
 - Infrastructure as code
 - CI config as code
