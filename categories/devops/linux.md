@@ -85,7 +85,7 @@ find . -type f | wc -l
 
 Used Netcat
 
-```sh
+```bash
 if ! nc -z localhost 5672; then
 sleep 3;
 fi
