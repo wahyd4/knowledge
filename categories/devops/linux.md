@@ -81,3 +81,12 @@ last reboot
 ```bash
 find . -type f | wc -l
 ```
+### Check if a port is open
+
+Used Netcat
+
+```sh
+if ! nc -z localhost 5672; then
+sleep 3;
+fi
+```
