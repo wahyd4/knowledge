@@ -17,12 +17,43 @@
 
 # CD
 ![OSI Models](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/iac.png)
-## Capistrano
-## Ansible
-## Puppet
-## Terraform
 
+## Automation tools
+
+### Capistrano
+A ruby tool for deploy applications
+### Chef
+
+#### What is chef
+
+Chef enables you to manage and scale cloud infrastructure with no downtime or interruptions. Freely move applications and configurations from one cloud to another. Chef is integrated with all major cloud providers including Amazon EC2, VMWare, IBM Smartcloud, Rackspace, OpenStack, Windows Azure, HP Cloud, Google Compute Engine, Joyent Cloud and others.
+
+Chef running a `chef-client` on each node to be a runner to install applications on remote server. The client can use both `pull` and `push` modes to to communication.
+
+More:
+* Chef vs ansible: <https://www.chef.io/ansible/>
+### Ansible
+
+#### What is Ansible
+Ansible is an IT automation tool. It can configure systems, deploy software, and orchestrate more advanced IT tasks such as continuous deployments or zero downtime rolling updates. Ansible’s goals are foremost those of simplicity and maximum ease of use.
+
+Ansible uses `SSH` to execute commands on remote server and use `RabbitMQ` at the transport level by `push` updates
+
+### Puppet
+
+Is also a configuration management tool for servers and designed to install and manage software on existing servers.
+
+### Packer
+
+Packer is a tool to allows you build a machine image which contains all preinstalled and configged applications.
+
+### Terraform
+
+#### What is Terraform
 Terraform use a declarative language to describe the current state of infrastructure, and there is no server side agent installed.
+
+Terraform is more about declare the resources/services requirements, rather than install softwares and libraries on remote server.
+
 
 ### Basic steps
 ```bash
