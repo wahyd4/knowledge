@@ -34,7 +34,7 @@
 
 ### Among teams/Company
 
-* Regular whole office standup, one people stands for each team.
+* Regular whole office stand up, one people stands for each team.
 * Regular office update, Q&A
 * Regular office tech people meeting.
 
@@ -46,6 +46,7 @@
 - ThoughtWorks Tech Radar
 - CI
 - CD
+- Gantt chart
 - monitoring/debuging
     - NewRelic
     - Sentry

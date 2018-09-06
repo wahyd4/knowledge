@@ -80,8 +80,9 @@ terraform apply # Apply changes to cluster
 ## OSI Model( 7 layers network)
 
 ![OSI Models](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/osi-model.png)
+
 # tools
-- git
+## git
 	- cherrypick
 	- rebase
 	- commit
@@ -106,7 +107,11 @@ terraform apply # Apply changes to cluster
 	- mv Rename/move files and folder with git history records
 
       e.g. git mv -k ./a/b ./c/d   option `k` would avoid the "can not move directory into itself" error.
-- oh-my-zsh
-- IDE/tools
+## oh-my-zsh
+## IDE/tools
 	- Intellij
 	- vscode
+
+## Security
+
+#
