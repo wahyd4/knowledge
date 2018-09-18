@@ -90,3 +90,17 @@ if ! nc -z localhost 5672; then
 sleep 3;
 fi
 ```
+
+### scp copy files between host
+
+#### Copy files from remote server
+
+```bash
+scp your_username@remotehost.edu:foobar.txt /local/dir
+```
+
+### Copy local files to remote server
+
+```bash
+scp /path/to/local/file user@server:/path/to/remote/file
+```
