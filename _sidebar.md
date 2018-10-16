@@ -17,6 +17,7 @@
     - [Incident Management](categories/devops/incident.md)
     - [Linux](categories/devops/linux.md)
 - [Web](categories/web.md)
+- [IoT](categories/iot.md)
 - [Success Team Work](categories/team-work.md)
 - [Uncategorised](categories/uncategorised.md)
 - English
