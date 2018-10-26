@@ -62,25 +62,57 @@
 	- task based
 
 ## Useful tips
-- Iterate map
+### Iterate map
 	- for (Map.Entry<String, String> entry : map.entrySet()) { }
-- List to array
+###  List to array
 	- int[] arr= new int[list.length](); list.toArray(arr);
-- Object
+### Object
 	- immutable
 	- object that can’t be modified after it’s created
 		- Don’t allow subclass override methods, class to be final
 		- Don’t provide setter method
 		- Make all field private and final
 	- mutable
-- Default Timezone
+### Default Timezone
 	- TimeZone.setDefault(TimeZone.getTimeZone("GMT+8"))
-- [generics](https://appliedgo.net/generics/)
+### [generics](https://appliedgo.net/generics/)
 	- Why we need?
 
 	- e.g we have sort method, and different type(n) of  objects. then you have to write n kind of search methods.
-- event listener
+### event listener
 	- [https://stackoverflow.com/questions/6270132/create-a-custom-event-in-java](https://stackoverflow.com/questions/6270132/create-a-custom-event-in-java)
+
+### Try with resource
+The try-with-resources statement is a try statement that declares one or more resources. A resource is an object that must be closed after the program is finished with it. The try-with-resources statement ensures that each resource is closed at the end of the statement. Any object that implements java.lang.AutoCloseable, which includes all objects which implement java.io.Closeable, can be used as a resource.
+
+In short no need add manual `finally` block to close resources.
+
+```java
+    try (InputStream caInput = new ByteArrayInputStream(decode)) {
+      // Generate the CA Certificate from the raw resource file
+
+      Certificate ca = CertificateFactory.getInstance("X.509").generateCertificate(caInput);
+
+      // Load the key store using the CA
+      KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+      keyStore.load(null, null);
+      keyStore.setCertificateEntry("ca", ca);
+
+      // Initialize the TrustManager with this CA
+      TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+      tmf.init(keyStore);
+
+      // Create an SSL context that uses the created trust manager
+      SSLContext sslContext = SSLContext.getInstance("TLS");
+      sslContext.init(null, tmf.getTrustManagers(), new SecureRandom());
+
+      return sslContext.getSocketFactory();
+
+    } catch (Exception ex) {
+      logger.error(ex.getMessage());
+      throw new RuntimeException(ex);
+    }
+```
 
 ## JAVA SE
 
