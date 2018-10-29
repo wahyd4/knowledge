@@ -104,3 +104,7 @@ scp your_username@remotehost.edu:foobar.txt /local/dir
 ```bash
 scp /path/to/local/file user@server:/path/to/remote/file
 ```
+
+## Package manager
+
+* [snap](https://snapcraft.io/)
