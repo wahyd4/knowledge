@@ -14,6 +14,7 @@
 - [Testing](categories/testing.md)
 - [Devops](categories/devops.md)
     - [Docker](categories/devops/docker.md)
+    - [Kubernetes](categories/devops/kubernetes.md)
     - [Incident Management](categories/devops/incident.md)
     - [Linux](categories/devops/linux.md)
 - [Web](categories/web.md)
