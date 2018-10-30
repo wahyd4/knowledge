@@ -1,4 +1,6 @@
-## Kubernetes
+# Kubernetes
+
+## Terminology
 
 - Pod
     - Single container
@@ -37,7 +39,7 @@
     - Failed
         - the volume has failed its automatic reclamation
 
-### Several ways to access a service inside Kubernetes cluster
+## Several ways to access a service inside Kubernetes cluster
 * ClusterIP, Can only be accessed inside the cluster. You can access inside `kubectl proxy`
 * NodePort, You can access the service by a specific public port between `30000–32767`, if the cluster server IP changes, then your service' endpoint url changes.
 * LoadBalancer, it's kind of external service, all the requests go through the loadbalancer. Every service needs a new IP for this.
@@ -46,7 +48,7 @@
 Links:
 * [Kubernetes NodePort vs LoadBalancer vs Ingress? When should I use what?](https://medium.com/google-cloud/kubernetes-nodeport-vs-loadbalancer-vs-ingress-when-should-i-use-what-922f010849e0)
 
-### Zero down time deployment
+## Zero down time deployment
 Set strategy type to `RollingUpdate` instead of `Recreate`
 ```yaml
 spec:
@@ -58,7 +60,7 @@ spec:
       maxSurge: 1
 ```
 
-### Some useful commands
+## Some useful commands
 
 ```bash
 
@@ -73,14 +75,14 @@ kubectl get ingress #get ingresses
 
 ```
 
-### Kubernetes Dashboard
+## Kubernetes Dashboard
 
-#### Deploy Dashboard
+### Deploy Dashboard
 
 ```bash
 kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
 ```
-#### Access dashboard
+### Access dashboard
 
 ```bash
 # First fetch cluster info, make sure cluster is running properly
