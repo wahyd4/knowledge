@@ -92,3 +92,39 @@ kubectl cluster-info
 http://your_ip:8080/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
 
 ```
+
+## Configure Kubectl to access remote Kubernetes cluster
+
+Here is a very simple config which use HTTP and `not secure`, should only for local testing purpose
+
+### Config
+
+Having a yaml file called `config-demo` in your current folder
+
+```yaml
+apiVersion: v1
+clusters:
+- cluster:
+    server: http://your_cluster_ip:8080
+  name: development
+contexts:
+- context:
+    cluster: development
+    namespace: dev
+    user: developer
+  name: dev
+current-context: dev
+kind: Config
+preferences: {}
+users:
+- name: developer
+```
+
+### Connect to remote cluster
+
+```bash
+kubectl get all --kubeconfig=config-demo --all-namespaces
+```
+For long term usage, you will need to copy the content to your `~/.kube/config`
+
+TODO: Setup SSL connection
