@@ -178,3 +178,12 @@ In short no need add manual `finally` block to close resources.
 
 	- A selector allows a single thread to handle multiple Channels
 	- [http://tutorials.jenkov.com/java-nio/index.html](http://tutorials.jenkov.com/java-nio/index.html)
+
+### SSL
+
+#### Java use TLSv1.2 by default since Java 8
+
+When you saw some error like this `SSL handshake exception: “Algorithm constraints check failed: MD5withRSA”`, probably you used `MD5` as message digest when generate a CA. You should regenerate a new CA using `sha1`, because the `MD5` has been found to be insecure.
+
+Some more info <https://stackoverflow.com/questions/21218217/ssl-handshake-exception-algorithm-constraints-check-failed-md5withrsa>
+
