@@ -93,6 +93,32 @@ Links:
 * O API - an alternative to REST APIs
 : <https://hackernoon.com/o-api-an-alternative-to-rest-apis-e9a2ed53b93c>
 
+## Open API
+
+The OpenAPI Specification (OAS) defines a standard, programming language-agnostic interface description for REST APIs, which allows both humans and computers to discover and understand the capabilities of a service without requiring access to source code, additional documentation, or inspection of network traffic. When properly defined via OpenAPI, a consumer can understand and interact with the remote service with a minimal amount of implementation logic. Similar to what interface descriptions have done for lower-level programming, the OpenAPI Specification removes guesswork in calling a service. Open API can be described in `yaml` or `json`
+
+### Use cases
+
+* Interactive documentation
+* Mock server generation
+* Client code generation
+* Automation testing
+
+### Implementation
+
+* [Swagger](http://swagger.io)
+
+### Tools
+
+[Redoc](https://github.com/Rebilly/ReDoc) OpenAPI/Swagger-generated API Reference Documentation, which gives you beautiful interface to the API spec file.
+
+`redoc-cli` is a command line tool to generate a single HTML version of API Spec file.
+
+```bash
+redoc-cli bundle swagger.json
+```
+Some sample swagger files: <http://rackerlabs.github.io/wadl2swagger/openstack.html>
+
 # Log and Error
 
 ## Sentry
