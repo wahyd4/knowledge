@@ -58,16 +58,24 @@ ch := make(chan Task, 3)
 
 ## Sync
 
-- atomic
-- Mutex
+###  atomic
+### Mutex
     - sync.Mutex()
     - mutex.Lock()
     - mutx.Unlock()
-- string literals
+### RWMutex
+  > A RWMutex is a reader/writer mutual exclusion lock. The lock can be held by an arbitrary number of readers or a single writer. The zero value for a RWMutex is an unlocked mutex.
 
-    \`aaa bbb ccc\`
-- panic / recover
-- `sync.Map` is concurrent/ thread safe `map`, normal `map` isn't
+In other words, readers don't have to wait for each other. They only have to wait for writers holding the lock.
+
+### string literals
+
+```go
+    `aaa bbb ccc`
+```
+### panic / recover
+
+###  `sync.Map` is concurrent/ thread safe `map`, normal `map` isn't
 
 ```go
 m := new(sync.Map)
