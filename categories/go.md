@@ -67,6 +67,13 @@ ch := make(chan Task, 3)
 
     \`aaa bbb ccc\`
 - panic / recover
+- `sync.Map` is concurrent/ thread safe `map`, normal `map` isn't
+
+```go
+m := new(sync.Map)
+m.Store("a", "b")
+value, ok := m.Load("a")
+```
 
 # Frameworks
 
