@@ -21,7 +21,7 @@ The Java based open source APM.
 ## Pingdom
 It's a online web services, it gives you ability to do ping to your website from different regions, web servers.
 
-# Monitor
+# Monitoring
 
 ## Bosun
 
