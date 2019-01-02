@@ -23,8 +23,18 @@ It's a online web services, it gives you ability to do ping to your website from
 
 # Monitor
 
-- Bosun
-- Prometheus
+## Bosun
+
+## Prometheus
+
+### Prometheus Metric types
+
+* Counter, A counter is a cumulative metric that represents a single monotonically increasing counter whose value can only increase or be reset to zero on restart. For example, you can use a counter to represent the number of requests served, tasks completed, or errors. Do not use a counter to expose a value that can decrease.
+* A gauge is a metric that represents a single numerical value that can arbitrarily go up and down.
+Gauges are typically used for measured values like temperatures or current memory usage, but also "counts" that can go up and down, like the number of running goroutines.
+* A histogram samples observations (usually things like request durations or response sizes) and counts them in configurable buckets. It also provides a sum of all observed values.
+* Summary, Similar to a histogram, a summary samples observations (usually things like request durations and response sizes). While it also provides a total count of observations and a sum of all observed values, it calculates configurable quantiles over a sliding time window.
+
 
 # API
 
