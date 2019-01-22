@@ -128,3 +128,40 @@ kubectl get all --kubeconfig=config-demo --all-namespaces
 For long term usage, you will need to copy the content to your `~/.kube/config`
 
 TODO: Setup SSL connection
+
+
+## Helm
+
+Add Kubernetes yaml template engine and the package manager for Kubernetes
+
+### How to use
+
+```bash
+helm init
+helm upgrade --install -f abc/values-staging.yaml some-name ./abc
+# abc/values-staging.yaml the value file
+# some-name the release name
+# abc the template folder
+helm delete --purge mqtt  # mqtt the release name
+
+```
+### Install 3rd party packages
+```bash
+helm repo add gitlab https://charts.gitlab.io/ # add remote repo
+helm repo update # update index
+helm install mirantisworkloads/vernemq
+```
+
+### Tips
+
+* Normally when you just updated the configmap the deployment or statefulset pod wouldn't updated, but you can add a label to deployment/statefulset yaml, when the value changes the pods will be recreated
+
+```yaml
+template:
+  metadata:
+    labels:
+      app: vernemq
+      configmapVersion: "{{ .Release.Revision }}"
+```
+
+
