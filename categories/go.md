@@ -119,7 +119,8 @@ value, ok := m.Load("a")
 
 ## map
 
-- implement by hash table
+* implement by hash table
+* slice can't be the key of a map, but sized array could. `var a map[[2]int]string`
 
 ## Go has no generics
 
@@ -194,6 +195,35 @@ fmt.Println(t.Format("2006-01-02 15:04:05"))
 
 ## value types
 * Array
+
+## Read file line by line
+```go
+package main
+
+import (
+    "bufio"
+    "fmt"
+    "log"
+    "os"
+)
+
+func main() {
+    file, err := os.Open("/path/to/file.txt")
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer file.Close()
+
+    scanner := bufio.NewScanner(file)
+    for scanner.Scan() {
+        fmt.Println(scanner.Text())
+    }
+
+    if err := scanner.Err(); err != nil {
+        log.Fatal(err)
+    }
+}
+```
 
 # commands
 
