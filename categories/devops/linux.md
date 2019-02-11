@@ -105,6 +105,17 @@ scp your_username@remotehost.edu:foobar.txt /local/dir
 scp /path/to/local/file user@server:/path/to/remote/file
 ```
 
+## Curl
+
+Curl is a very popular and powerful HTTP client, there is also another very good tool called `httpie` writen in Python which is even eaiser to use.
+
+The following are some useful commands:
+
+### Post file
+```bash
+curl --data "@$(pwd)/fixure/sample.json" --user "foo:bar" localhost:8080/api/abc
+```
+
 ## Package manager
 
 * [snap](https://snapcraft.io/)
