@@ -108,3 +108,4 @@ scp /path/to/local/file user@server:/path/to/remote/file
 ## Package manager
 
 * [snap](https://snapcraft.io/)
+* [Brew](https://brew.sh/)
