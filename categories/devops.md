@@ -85,7 +85,7 @@ terraform apply # Apply changes to cluster
 
 [Wikipedia](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
 
-|**Address**|**Difference**|**Mask**|**Addresses**|**Relative**|**Restrictions**|**Typical use**|
+|**Address**|**Difference**|**Mask**|**Addresses**|**2n**|**Relative**|**Restrictions**|**Typical use**|
 | :----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |a.b.c.d/32|+0.0.0.0|255.255.255.255|1|20|​1⁄256 C| |Host route
 |a.b.c.d/31|+0.0.0.1|255.255.255.254|2|21|​1⁄128 C|d = 0 ... (2n) ... 254|Point to point links (RFC 3021)
