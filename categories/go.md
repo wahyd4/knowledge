@@ -245,3 +245,6 @@ REPL stands for read eval print loop, basically it just like the irb in Ruby.
 Wiki: <https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop>
 
 * gore <https://github.com/motemen/gore>
+
+# Useful links
+* [Go best practice](https://github.com/golang/go/wiki/CodeReviewComments)
