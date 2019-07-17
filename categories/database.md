@@ -32,6 +32,41 @@
 			- will impacted by time zone
 			- index by timestamp will be faster than datetime due to 4 bytes.
 
+## Postgres trigger example
+
+Giving we have a table called users, and the columns are:
+```bash
+id name age
+1  tom  10
+2  Dave  17
+```
+there is a requirement which is when some user's age turn to `18` move that person to `adults` table.
+The adults table have the same fields with `users`.
+
+The potential trigger implementation can be
+
+```sql
+
+CREATE OR REPLACE FUNCTION to_adults ()
+	RETURNS TRIGGER
+	AS $$
+BEGIN
+	INSERT INTO adults VALUES (new.*);
+	DELETE FROM users WHERE age >= 18;
+	RETURN NEW;
+END;
+$$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER to_adults_trigger
+	AFTER UPDATE ON users
+	FOR EACH ROW
+	WHEN (NEW.age >= 18)
+	EXECUTE PROCEDURE to_adults();
+```
+
+
+
 ## SQL join diagram
 
 ![sql join diagram](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/Knowledge.mindnode/resources/FC67BE77-F837-4207-B3C4-45205F7C9C40.png)
