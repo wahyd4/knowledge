@@ -105,15 +105,57 @@ scp your_username@remotehost.edu:foobar.txt /local/dir
 scp /path/to/local/file user@server:/path/to/remote/file
 ```
 
-## Curl
+### Merge video files into one
 
-Curl is a very popular and powerful HTTP client, there is also another very good tool called `httpie` writen in Python which is even eaiser to use.
+```bash
+ffmpeg -f concat -safe 0 -i ./files.txt -c copy output.mp4
+```
+
+In the `files.txt` you should list all the video clips like the following
+
+```txt
+file 1.flv
+file 2.flv
+file 3.flv
+```
+
+
+### Curl
+
+Curl is a very popular and powerful HTTP client, there is also another very good tool called `httpie` written in Python which is even eaiser to use.
 
 The following are some useful commands:
 
-### Post file
+#### Post request with file
 ```bash
 curl --data "@$(pwd)/fixure/sample.json" --user "foo:bar" localhost:8080/api/abc
+```
+
+### Mount
+
+#### Mount NFS(Network file system) to local
+
+```bash
+
+mkdir /to-local-folder
+# mount
+mount -t nfs -O user=abc,pass=pass 192.168.1.2:/nfs-folder  /to-local-folder
+
+# remount
+mount -o remount /to-local-folder
+```
+
+#### Mount folder permanently
+
+In the example above, the mounted folder will lost the connection when you restart your system, in order to permanently mount the folder, you will need to edit `/etc/fstab` by adding one more line
+
+```
+192.168.1.2:/nfs-folder   /to-local-folder    nfs    defaults    0 0
+```
+You can specify more options
+
+```
+192.168.0.216:/nfs-folder   /to-local-folder    nfs    defaults,proto=tcp,port=2049    0 0
 ```
 
 ## Package manager
