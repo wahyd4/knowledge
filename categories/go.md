@@ -87,6 +87,23 @@ m.Store("a", "b")
 value, ok := m.Load("a")
 ```
 
+### Defer to Clean Up
+
+Use defer to clean up resources such as files and locks.
+```go
+p.Lock()
+defer p.Unlock()
+
+if p.count < 10 {
+  return p.count
+}
+
+p.count++
+return p.count
+
+// more readable
+```
+
 # Frameworks
 
 ## db
@@ -112,6 +129,8 @@ value, ok := m.Load("a")
 - test
     - Testify <http://github.com/stretchr/testify>
     - Ginkgo <http://onsi.github.io/ginkgo/>
+- Linter 
+    - Golangci-lint https://github.com/golangci/golangci-lint		
 
 # Tips
 
@@ -124,7 +143,7 @@ value, ok := m.Load("a")
 ## map
 
 * implement by hash table
-* slice can't be the key of a map, but sized array could. `var a map[[2]int]string`
+* slice can't be the key of a map, but sized array could. e.g. `var a map[[2]int]string`
 
 ## Go has no generics
 
