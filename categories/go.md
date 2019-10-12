@@ -27,11 +27,12 @@ new(T) -> *T
 Array has a exactly length, can't be modified.
 ## slice
 
-- Auto increment length
+1. Auto increment length
 ```go
 new([]int)
 make([]int, 2, 5)
 ```
+2. nil is a valid slice which length is `0` 
 
 ## Go routine
 
