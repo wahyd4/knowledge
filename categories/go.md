@@ -252,3 +252,5 @@ Wiki: <https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop>
 
 # Useful links
 * [Go best practice](https://github.com/golang/go/wiki/CodeReviewComments)
+* [Code Review Comments](https://github.com/golang/go/wiki/CodeReviewComments)
+* [Uber Go code style](https://github.com/uber-go/guide/blob/master/style.md#pointers-to-interfaces)
