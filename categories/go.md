@@ -1,4 +1,4 @@
-# Language
+# Go
 
 ## pass pointer or value
 - value: Variable must not be modified
@@ -20,13 +20,16 @@ new(T) -> *T
 
 ## array
 ```go
-[]string
-[]string{"a", "b"}
-[...]string{"a","b"}
+var a [1]int
 ```
 Array has a exactly length, can't be modified.
 ## slice
 
+```go
+var a []string
+[]string{"a", "b"}
+[...]string{"a","b"}
+```
 1. Auto increment length
 ```go
 new([]int)
