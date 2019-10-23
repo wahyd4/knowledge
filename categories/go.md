@@ -35,7 +35,7 @@ var a []string
 new([]int)
 make([]int, 2, 5)
 ```
-2. nil is a valid slice which length is `0` 
+2. nil is a valid slice which length is `0`
 
 ## Go routine
 
@@ -119,20 +119,29 @@ return p.count
 - go kit
     - full stack micro service framework like spring boot
 
-## tools
+## Tools
 
-- profiler
+### profiler
     - go-wrk(wrk)
         - a http benchmark tool
     - go-torch
         - Stochastic flame graph profiler
-- test
+### test
     - Testify <http://github.com/stretchr/testify>
     - Ginkgo <http://onsi.github.io/ginkgo/>
-- Linter 
-    - Golangci-lint https://github.com/golangci/golangci-lint		
+### Linter
+    - Golangci-lint https://github.com/golangci/golangci-lint
 
 # Tips
+
+## Sort slice
+
+```go
+// sort users by user age ASC
+sort.Slice(users, func(i, j int) bool {
+  return users[i].age < planets[j].age
+})
+```
 
 ## slice
 
@@ -174,14 +183,31 @@ return p.count
 
 ## error handling
 
-- error type assertion
+### check error type
+
 ```go
-    if serr, ok := err.(*json.SyntaxError); ok {}
+ErrorSample := errors.New("some error")
+if errors.Is(err, ErrorSample) {
+    // something wasn't found
+}
 ```
 
-- better error handling
+### error type assertion
+```go
+    if serr, ok := err.(*json.SyntaxError); ok {}
+//or
 
-    - custom error type
+// var e *QueryError
+if errors.As(err, &e) {
+    // err is a *QueryError, and e is set to the error's value
+}
+
+```
+
+### better error handling
+
+#### custom error type
+
 ```go
 type appError struct {
     Error   error
@@ -189,11 +215,13 @@ type appError struct {
     Code    int
 }
 ```
-    - concat error check
+####  concat error check
+
 ```go
 if err1() != nil || err2() != nil {}
 ```
-    - some error constants
+#### some error constants
+
 ```go
 errNotFound = errors.New("Item not found")
 switch err {
