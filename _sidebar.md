@@ -18,6 +18,7 @@
     - [Incident Management](categories/devops/incident.md)
     - [Linux](categories/devops/linux.md)
     - [Google Cloud Platform](categories/devops/gcp.md)
+    - [AWS](categories/devops/aws.md)
 - [Web](categories/web.md)
 - [IoT](categories/iot.md)
 - [Success Team Work](categories/team-work.md)
