@@ -63,15 +63,18 @@ spec:
 ## Some useful commands
 
 ```bash
-
 kubectl config set-context context-name --namespace default-namespace-name #default active context
 kubectl config view #view config
 kubectl get nodes #get nodes
 kubectl get namespaces #get all namespaces
 kubectl get pods #get pods
 kubectl get deployments #get deployments
+kubectl logs -f <pod> --tail 200 # tail logs from some pod
 kubectl get services #get services
 kubectl get ingress #get ingresses
+kubectl get hpa # get horizontal auto scaling policies
+kubectl get all # get all kinds of units
+kubectl get secrets <secret-id> -o yaml #view a secret details with yaml format, fields are encrypted with base64
 
 ```
 
@@ -169,3 +172,13 @@ template:
 https://blog.hasura.io/draft-vs-gitkube-vs-helm-vs-ksonnet-vs-metaparticle-vs-skaffold-f5aa9561f948/
 
 
+## Tools
+
+### Kubectx and kubens
+
+Switch faster between clusters and namespaces in kubectl https
+
+- kubectx for switching contexts
+- kubens for switching namespaces
+
+Github page: https://github.com/ahmetb/kubectx
