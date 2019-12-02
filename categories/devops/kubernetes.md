@@ -231,6 +231,21 @@ spec:
         type: Value
         value: 10k
 ```
+## Limit CPU and memory for pods
+
+```yaml
+ports:
+- name: db-port
+  containerPort: 2345
+  protocol: TCP
+resources:
+requests:
+  cpu: 30m
+  memory: 64Mi
+limits:
+  cpu: 200m
+  memory: 256Mi
+```
 
 ## Tools
 
