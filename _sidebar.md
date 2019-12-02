@@ -21,6 +21,7 @@
     - [AWS](categories/devops/aws.md)
 - [Web](categories/web.md)
 - [IoT](categories/iot.md)
+- [Fintech](categories/fintech.md)
 - [Success Team Work](categories/team-work.md)
 - [Uncategorised](categories/uncategorised.md)
 - English
