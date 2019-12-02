@@ -27,9 +27,9 @@ The term service mesh is used to describe the network of microservices that make
 * [Istio](https://istio.io/)
 * [Consul](https://www.consul.io/)
 
-# CircuitBreaker Design
+## CircuitBreaker Design
 
-## Why we need CircuitBreaker
+### Why we need CircuitBreaker
 
 In case we have serviceB down, serviceA should still try to recover from this and try to do one of the followings:
 - **Custom fallback**: Try to get the same data from some other source. If not possible, use its own cache value.
@@ -38,7 +38,7 @@ In case we have serviceB down, serviceA should still try to recover from this an
 - **Heal automatic**: Periodically check if serviceB is working again.
 - **Other APIs should work**: All other APIs should continue to work.
 
-## What is circuit breaker design?
+### What is circuit breaker design?
 The idea behind is simple:
 - Once serviceA “knows” that serviceB is down, there is no need to make request to serviceB. serviceA should return cached data or timeout error as soon as it can. This is the OPEN state of the circuit
 - Once serviceA “knows” that serviceB is up, we can CLOSE the circuit so that request can be made to serviceB again.
@@ -47,7 +47,16 @@ The idea behind is simple:
 ![CircuitBreaker](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/circuitbreaker.png)
 
 
-## More links
+### More links
 
 - <https://martinfowler.com/bliki/CircuitBreaker.html>
 - <https://itnext.io/understand-circuitbreaker-design-pattern-with-simple-practical-example-92a752615b42>
+
+
+### Self-contained System (SCS)
+
+The Self-contained System (SCS) approach is an architecture that focuses on a separation of the functionality into many independent systems, making the complete logical system a collaboration of many smaller software systems. This avoids the problem of large monoliths that grow constantly and eventually become unmaintainable. Over the past few years, we have seen its benefits in many mid-sized and large-scale projects.
+
+The idea is to break a large system apart into several smaller self-contained systems, or SCSs, that follow certain rules.
+
+![Self contained system](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/scs.png)
