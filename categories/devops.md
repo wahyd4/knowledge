@@ -153,5 +153,3 @@ terraform apply # Apply changes to cluster
 	- vscode
 
 ## Security
-
-#
