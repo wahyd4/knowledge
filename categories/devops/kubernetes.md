@@ -247,6 +247,33 @@ limits:
   memory: 256Mi
 ```
 
+## Kubernetes Operator
+
+A Kubernetes Operator is an abstraction for deploying non-trivial applications on Kubernetes. It wraps the logic for deploying and operating an application using Kubernetes constructs. As an example, the `etcd` operator provides an `etcd` cluster as a first-class object.
+
+### An example Operator
+
+- deploying an application on demand
+- taking and restoring backups of that application’s state
+-handling upgrades of the application code alongside related changes such as database schemas or extra configuration settings
+- publishing a Service to applications that don’t support Kubernetes APIs to discover them
+- simulating failure in all or part of your cluster to test its resilience
+- choosing a leader for a distributed application without an internal member election process
+
+### Use Operator
+
+```
+kubectl get SampleDB                   # find configured databases
+
+kubectl edit SampleDB/example-database # manually change some settings
+```
+
+### Some 3rd party operators
+
+- Custom operators list: https://gist.github.com/philips/a97a143546c87b86b870a82a753db14c
+- Prometheus operator: https://coreos.com/blog/the-prometheus-operator.html
+-
+
 ## Tools
 
 ### Kubectx and kubens
