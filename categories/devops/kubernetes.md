@@ -63,15 +63,18 @@ spec:
 ## Some useful commands
 
 ```bash
-
 kubectl config set-context context-name --namespace default-namespace-name #default active context
 kubectl config view #view config
 kubectl get nodes #get nodes
 kubectl get namespaces #get all namespaces
 kubectl get pods #get pods
 kubectl get deployments #get deployments
+kubectl logs -f <pod> --tail 200 # tail logs from some pod
 kubectl get services #get services
 kubectl get ingress #get ingresses
+kubectl get hpa # get horizontal auto scaling policies
+kubectl get all # get all kinds of units
+kubectl get secrets <secret-id> -o yaml #view a secret details with yaml format, fields are encrypted with base64
 
 ```
 
@@ -169,3 +172,115 @@ template:
 https://blog.hasura.io/draft-vs-gitkube-vs-helm-vs-ksonnet-vs-metaparticle-vs-skaffold-f5aa9561f948/
 
 
+## Horizontal scaling
+
+### V1
+```yaml
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: worker-auto-scaling
+  namespace: x-prod
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: <deployment-name>
+  minReplicas: 1
+  maxReplicas: 2
+  targetCPUUtilizationPercentage: 75 # trigger point
+```
+
+### V2
+```yaml
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: php-apache
+  namespace: default
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: php-apache
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50
+  - type: Pods
+    pods:
+      metric:
+        name: packets-per-second
+      target:
+        type: AverageValue
+        averageValue: 1k
+  - type: Object
+    object:
+      metric:
+        name: requests-per-second
+      describedObject:
+        apiVersion: networking.k8s.io/v1beta1
+        kind: Ingress
+        name: main-route
+      target:
+        type: Value
+        value: 10k
+```
+## Limit CPU and memory for pods
+
+```yaml
+ports:
+- name: db-port
+  containerPort: 2345
+  protocol: TCP
+resources:
+requests:
+  cpu: 30m
+  memory: 64Mi
+limits:
+  cpu: 200m
+  memory: 256Mi
+```
+
+## Kubernetes Operator
+
+A Kubernetes Operator is an abstraction for deploying non-trivial applications on Kubernetes. It wraps the logic for deploying and operating an application using Kubernetes constructs. As an example, the `etcd` operator provides an `etcd` cluster as a first-class object.
+
+### An example Operator
+
+- deploying an application on demand
+- taking and restoring backups of that application’s state
+-handling upgrades of the application code alongside related changes such as database schemas or extra configuration settings
+- publishing a Service to applications that don’t support Kubernetes APIs to discover them
+- simulating failure in all or part of your cluster to test its resilience
+- choosing a leader for a distributed application without an internal member election process
+
+### Use Operator
+
+```
+kubectl get SampleDB                   # find configured databases
+
+kubectl edit SampleDB/example-database # manually change some settings
+```
+
+### Some 3rd party operators
+
+- Custom operators list: https://gist.github.com/philips/a97a143546c87b86b870a82a753db14c
+- Prometheus operator: https://coreos.com/blog/the-prometheus-operator.html
+-
+
+## Tools
+
+### Kubectx and kubens
+
+Switch faster between clusters and namespaces in kubectl https
+
+- kubectx for switching contexts
+- kubens for switching namespaces
+
+Github page: https://github.com/ahmetb/kubectx

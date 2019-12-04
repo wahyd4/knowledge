@@ -11,32 +11,6 @@
 	- temporary variable
 	- coupling
 
-# Microservice
-
-- benefits
-
-	- Each application is relatively small
-	- Easy to scale
-	- Improved fault isolation
-		- One service fails won’t influence others
-	- You can use different stack for each service
-	- Each service can be deployed independently
-- drawbacks
-
-	- Increased memory consumption
-	- Developers must deal with extra complexity of creating a distributed system
-	- Deployment complexity
-		- To deploy different types of services
-		
-## Service Mesh
-
-A service mesh is a way to control how different parts of an application share data with one another. Unlike other systems for managing this communication, a service mesh is a dedicated infrastructure layer built right into an app. This visible infrastructure layer can document how well (or not) different parts of an app interact, so it becomes easier to optimize communication and avoid downtime as an app grows.
-
-### Opensource Projects
-
-* [Istio](https://istio.io/)
-* [Consul](https://www.consul.io/)
-
 # OOP
 
 - Polymorphism

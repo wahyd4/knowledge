@@ -4,10 +4,6 @@
 
 Easy to use, just drag and drop things.
 
-## [Kubernetes](categories/devops/kubernetes.md)
-
-Which is the actual standard orchestration platform.
-
 ## Benefits of using Docker
 
 	- escape the app dependency matrix

@@ -1,4 +1,4 @@
-# Language
+# Go
 
 ## pass pointer or value
 - value: Variable must not be modified
@@ -20,18 +20,22 @@ new(T) -> *T
 
 ## array
 ```go
-[]string
-[]string{"a", "b"}
-[...]string{"a","b"}
+var a [1]int
 ```
 Array has a exactly length, can't be modified.
 ## slice
 
-- Auto increment length
+```go
+var a []string
+[]string{"a", "b"}
+[...]string{"a","b"}
+```
+1. Auto increment length
 ```go
 new([]int)
 make([]int, 2, 5)
 ```
+2. nil is a valid slice which length is `0`
 
 ## Go routine
 
@@ -83,6 +87,23 @@ m.Store("a", "b")
 value, ok := m.Load("a")
 ```
 
+### Defer to Clean Up
+
+Use defer to clean up resources such as files and locks.
+```go
+p.Lock()
+defer p.Unlock()
+
+if p.count < 10 {
+  return p.count
+}
+
+p.count++
+return p.count
+
+// more readable
+```
+
 # Frameworks
 
 ## db
@@ -98,18 +119,29 @@ value, ok := m.Load("a")
 - go kit
     - full stack micro service framework like spring boot
 
-## tools
+## Tools
 
-- profiler
+### profiler
     - go-wrk(wrk)
         - a http benchmark tool
     - go-torch
         - Stochastic flame graph profiler
-- test
+### test
     - Testify <http://github.com/stretchr/testify>
     - Ginkgo <http://onsi.github.io/ginkgo/>
+### Linter
+    - Golangci-lint https://github.com/golangci/golangci-lint
 
 # Tips
+
+## Sort slice
+
+```go
+// sort users by user age ASC
+sort.Slice(users, func(i, j int) bool {
+  return users[i].age < planets[j].age
+})
+```
 
 ## slice
 
@@ -120,7 +152,7 @@ value, ok := m.Load("a")
 ## map
 
 * implement by hash table
-* slice can't be the key of a map, but sized array could. `var a map[[2]int]string`
+* slice can't be the key of a map, but sized array could. e.g. `var a map[[2]int]string`
 
 ## Go has no generics
 
@@ -151,14 +183,31 @@ value, ok := m.Load("a")
 
 ## error handling
 
-- error type assertion
+### check error type
+
 ```go
-    if serr, ok := err.(*json.SyntaxError); ok {}
+ErrorSample := errors.New("some error")
+if errors.Is(err, ErrorSample) {
+    // something wasn't found
+}
 ```
 
-- better error handling
+### error type assertion
+```go
+    if serr, ok := err.(*json.SyntaxError); ok {}
+//or
 
-    - custom error type
+// var e *QueryError
+if errors.As(err, &e) {
+    // err is a *QueryError, and e is set to the error's value
+}
+
+```
+
+### better error handling
+
+#### custom error type
+
 ```go
 type appError struct {
     Error   error
@@ -166,11 +215,13 @@ type appError struct {
     Code    int
 }
 ```
-    - concat error check
+####  concat error check
+
 ```go
 if err1() != nil || err2() != nil {}
 ```
-    - some error constants
+#### some error constants
+
 ```go
 errNotFound = errors.New("Item not found")
 switch err {
@@ -245,3 +296,8 @@ REPL stands for read eval print loop, basically it just like the irb in Ruby.
 Wiki: <https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop>
 
 * gore <https://github.com/motemen/gore>
+
+# Useful links
+* [Go best practice](https://github.com/golang/go/wiki/CodeReviewComments)
+* [Code Review Comments](https://github.com/golang/go/wiki/CodeReviewComments)
+* [Uber Go code style](https://github.com/uber-go/guide/blob/master/style.md#pointers-to-interfaces)
