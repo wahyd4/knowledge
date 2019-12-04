@@ -116,6 +116,20 @@ In short no need add manual `finally` block to close resources.
 
 ## JAVA SE
 
+### Java Collection
+![java collection](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/java-collection.png)
+
+#### HashMap and HashTable
+
+- `Hashtable` is synchronized, whereas `HashMap` is not. This makes HashMap better for non-threaded applications, as unsynchronized Objects typically perform better than synchronized ones.
+
+- `Hashtable` does not allow null keys or values. `HashMap` allows one null key and any number of null values.
+
+- One of HashMap's subclasses is `LinkedHashMap`, so in the event that you'd want predictable iteration order (which is insertion order by default), you could easily swap out the HashMap for a LinkedHashMap. This wouldn't be as easy if you were using Hashtable.
+
+- `HashMap` is not thread-safe, if you do want to have thread-safe one then use `Collections.synchronizedMap()`,
+- HashTable is thread-safe, but is treated as legacy.
+
 ### modifier
 
 	* public
@@ -186,4 +200,3 @@ In short no need add manual `finally` block to close resources.
 When you saw some error like this `SSL handshake exception: “Algorithm constraints check failed: MD5withRSA”`, probably you used `MD5` as message digest when generate a CA. You should regenerate a new CA using `sha1`, because the `MD5` has been found to be insecure.
 
 Some more info <https://stackoverflow.com/questions/21218217/ssl-handshake-exception-algorithm-constraints-check-failed-md5withrsa>
-
