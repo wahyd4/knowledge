@@ -78,6 +78,22 @@ kubectl get secrets <secret-id> -o yaml #view a secret details with yaml format,
 
 ```
 
+## Kubernetes port forward
+
+`kubectl port-forward` allows using resource name, such as a pod name, to select a matching pod to port forward to Which is perfect for testing the remote service/pods in your local. e.g. Forward your db port to a local port, you can connect to your remote db even it doesn't have a public IP.
+
+```bash
+kubectl port-forward redis-master-765d459796-258hz 7000:6379
+
+kubectl port-forward pods/redis-master-765d459796-258hz 7000:6379
+
+kubectl port-forward deployment/redis-master 7000:6379
+
+kubectl port-forward rs/redis-master 7000:6379
+
+kubectl port-forward svc/redis-master 7000:6379
+```
+
 ## Kubernetes Dashboard
 
 ### Deploy Dashboard
