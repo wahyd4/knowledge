@@ -309,3 +309,40 @@ Switch faster between clusters and namespaces in kubectl https
 - kubens for switching namespaces
 
 Github page: https://github.com/ahmetb/kubectx
+
+
+## Other distributions
+
+### OpenShift(OKD)
+
+https://github.com/openshift/okd
+
+OKD is the Origin community distribution of Kubernetes optimized for continuous application development and multi-tenant deployment. OKD adds developer and operations-centric tools on top of Kubernetes to enable rapid application development, easy deployment and scaling, and long-term lifecycle maintenance for small and large teams. OKD is also referred to as Origin in github and in the documentation. OKD makes launching Kubernetes on any cloud or bare metal a snap, simplifies running and updating clusters, and provides all of the tools to make your containerized-applications succeed.
+
+#### Differences
+
+- More strict on security, for example you can't run docker images with `root` user.
+- Better UI and come with some management tools.
+- Integrated CI/CD
+- It's a Redhat product, OKD is its open-source project
+
+![differences between Kubernetes and Openshift](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/openshift.png)
+
+
+### K3s
+
+https://github.com/rancher/k3s
+
+k3s is intended to be a fully compliant Kubernetes distribution with the following changes:
+
+1. Removed most in-tree plugins (cloud providers and storage plugins) which can be replaced
+   with out of tree addons.
+2. Add sqlite3 as the default storage mechanism. etcd3 is still available, but not the default.
+3. Wrapped in simple launcher that handles a lot of the complexity of TLS and options.
+4. Minimal to no OS dependencies (just a sane kernel and cgroup mounts needed). k3s packages required
+   dependencies
+    * containerd
+    * Flannel
+    * CoreDNS
+    * CNI
+    * Host utilities (iptables, socat, etc)
