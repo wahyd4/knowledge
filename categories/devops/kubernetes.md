@@ -295,9 +295,9 @@ kubectl edit SampleDB/example-database # manually change some settings
 
 ### Some 3rd party operators
 
+- Operator registry: https://operatorhub.io/
 - Custom operators list: https://gist.github.com/philips/a97a143546c87b86b870a82a753db14c
 - Prometheus operator: https://coreos.com/blog/the-prometheus-operator.html
--
 
 ## Tools
 
