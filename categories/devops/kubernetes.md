@@ -2,48 +2,60 @@
 
 ## Terminology
 
-- Pod
-    - Single container
-    - Multiple containers
-        - share ip
-        - share volumes
-- Node
-- Service
-    - ClusterIP (default)
-    - NodePort （ access by port）
-    - LoadBalancer (external ip)
-    - ExternalName dns
-- Deployment
-- Replica Set
-- Service rolling update
-- DaemonSet
-    - running a cluster storage daemon, such as glusterd, ceph, on each node
-    - running a logs collection daemon on every node, such as fluentd or logstash.
-    - running a node monitoring daemon on every node, such as Prometheus Node Exporter, collectd, New Relic agent, or Ganglia gmond.
-- StatefulSets
-    - Ordered, graceful deployment and scaling
-    - Stable, persistent storage.
-    - Stable, unique network identifiers.
-    - Ordered, graceful deletion and termination.
-- Proxy
-- DNS
-    - service.namespace
-- Secrets
-- Persistent volumes
-    - Available
-        - a free resource that is not yet bound to a claim
-    - Bound
-        -  the volume is bound to a claim
-    - Released
-        - the claim has been deleted, but the resource is not yet reclaimed by the cluster
-    - Failed
-        - the volume has failed its automatic reclamation
+### Pod
+  - Single container
+  - Multiple containers
+      - share ip
+      - share volumes
+### Node
+
+Basically is a Kubernetes client or agent which runs a bunch of pods.
+
+### Service
+  - ClusterIP (default)
+  - NodePort （ access by port）
+  - LoadBalancer (external ip)
+  - ExternalName dns
+### Deployment
+
+A Deployment provides declarative updates for Pods and ReplicaSets.
+
+You describe a desired state in a Deployment, and the Deployment Controller changes the actual state to the desired state at a controlled rate. You can define Deployments to create new ReplicaSets, or to remove existing Deployments and adopt all their resources with new Deployments.
+
+### Replica Set
+    A ReplicaSet’s purpose is to maintain a stable set of replica Pods running at any given time. As such, it is often used to guarantee the availability of a specified number of identical Pods.
+### Service rolling update
+### DaemonSet
+  - running a cluster storage daemon, such as ·glusterd`, `ceph`, on each node
+  - running a logs collection daemon on every node, such as `fluentd` or logstash.
+  - running a node monitoring daemon on every node, such as Prometheus Node Exporter, collectd, New Relic agent, or Ganglia gmond.
+### StatefulSets
+  - Ordered, graceful deployment and scaling
+  - Stable, persistent storage.
+  - Stable, unique network identifiers.
+  - Ordered, graceful deletion and termination.
+### Proxy
+### DNS
+  - service.namespace
+### Secrets
+    For storing keys, credentials and certificates. For instance: database token, 3rd party API keys.
+### Persistent volumes
+
+- Available
+    - a free resource that is not yet bound to a claim
+- Bound
+    -  the volume is bound to a claim
+- Released
+    - the claim has been deleted, but the resource is not yet reclaimed by the cluster
+- Failed
+    - the volume has failed its automatic reclamation
 
 ## Several ways to access a service inside Kubernetes cluster
+
 * ClusterIP, Can only be accessed inside the cluster. You can access inside `kubectl proxy`
 * NodePort, You can access the service by a specific public port between `30000–32767`, if the cluster server IP changes, then your service' endpoint url changes.
 * LoadBalancer, it's kind of external service, all the requests go through the loadbalancer. Every service needs a new IP for this.
-* Ingress, can be shared among multiple services, you can have different types of ingress controllers: gec, nginx, contour,istio and so on.
+* Ingress, can be shared among multiple services, you can have different types of ingress controllers: `gec`, `nginx`, `contour`, `istio` and so on.
 
 Links:
 * [Kubernetes NodePort vs LoadBalancer vs Ingress? When should I use what?](https://medium.com/google-cloud/kubernetes-nodeport-vs-loadbalancer-vs-ingress-when-should-i-use-what-922f010849e0)
@@ -124,7 +136,7 @@ Having a yaml file called `config-demo` in your current folder
 apiVersion: v1
 clusters:
 - cluster:
-    server: http://your_cluster_ip:8080
+    server: https://your_cluster_ip:5443
   name: development
 contexts:
 - context:
@@ -144,10 +156,7 @@ users:
 ```bash
 kubectl get all --kubeconfig=config-demo --all-namespaces
 ```
-For long term usage, you will need to copy the content to your `~/.kube/config`
-
-TODO: Setup SSL connection
-
+For long term usage, you will need to copy the content to your `~/.kube/config` file
 
 ## Helm
 
