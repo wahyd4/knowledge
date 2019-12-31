@@ -60,6 +60,13 @@ CREATE TABLE pm25
 psql -U postgres -W -p 5432 -d somename -h 127.0.0.1 -f  ~/somefile.sql
 ```
 
+### Create user
+```sql
+CREATE DATABASE yourdbname;
+CREATE USER youruser WITH ENCRYPTED PASSWORD 'yourpass';
+GRANT ALL PRIVILEGES ON DATABASE yourdbname TO youruser;
+```
+
 ## Postgres trigger example
 
 Giving we have a table called users, and the columns are:
