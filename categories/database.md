@@ -18,11 +18,14 @@
 - Cassendra
 
 # SQL
-- Index
+
+## Index
 	- Index is unique but not mandatory
-- join
-- MYSQL
-	- tips
+## join
+
+## MYSQL
+
+### Tips
 		- datetime
 			- 8 bytes
  			    `1000-01-01 00:00:00 ~ 9999-12-31 23:59:59`
@@ -31,6 +34,31 @@
 			- 4 bytes `1970-01-01 08:00:01 ~ 2038-01-19 11:14:07`
 			- will impacted by time zone
 			- index by timestamp will be faster than datetime due to 4 bytes.
+
+## Postgres
+
+### Create a table
+
+```sql
+CREATE TABLE pm25
+(
+	id SERIAL,  -- id with auto increment
+	time TIMESTAMP not NULL,
+	pm25 integer DEFAULT 0,
+	concentration integer DEFAULT 0,
+	city VARCHAR not NULL
+);
+
+```
+### Import data from CSV
+```sql
+	COPY persons(first_name,last_name,dob,email)
+	FROM 'C:\tmp\persons.csv' DELIMITER ',' CSV HEADER;
+```
+### Import data with SQL
+```bash
+psql -U postgres -W -p 5432 -d somename -h 127.0.0.1 -f  ~/somefile.sql
+```
 
 ## Postgres trigger example
 
