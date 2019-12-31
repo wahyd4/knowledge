@@ -37,6 +37,14 @@
 
 ## Postgres
 
+### Commands
+
+```bash
+\list # list databases
+\c one # switch to datebase one
+\dt list all the tables
+```
+
 ### Create a table
 
 ```sql
