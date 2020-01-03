@@ -46,6 +46,7 @@ make([]int, 2, 5)
 ## Closure
 
 ## Channel
+
 - Normal channel
 ```go
 messages := make(chan string)
@@ -59,6 +60,7 @@ msg := <-messages
 ```go
 ch := make(chan Task, 3)
 ```
+
 ## Big Numbers
 
 Package big implements arbitrary-precision arithmetic (big numbers).

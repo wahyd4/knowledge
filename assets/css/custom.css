@@ -674,6 +674,7 @@ body {
 .markdown-section blockquote p {
   font-weight: 600;
   margin-left: 0;
+  padding: 1em 0;
 }
 .markdown-section iframe {
   margin: 1em 0;
