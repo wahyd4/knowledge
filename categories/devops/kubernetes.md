@@ -229,6 +229,58 @@ template:
 
 https://blog.hasura.io/draft-vs-gitkube-vs-helm-vs-ksonnet-vs-metaparticle-vs-skaffold-f5aa9561f948/
 
+## Rolling update
+
+Readiness Probe. Readiness Probe makes sure that the new pods created are ready to take on requests before terminating the old pods. To enable this, first you need to have a route in whatever the application you want to run which would return a 200 on an HTTP GET (Or other type) request.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-dep
+  namespace: default
+spec:
+  replicas: 2
+  strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 25%
+  selector:
+    matchLabels:
+      app: hello-dep
+  template:
+    metadata:
+      labels:
+        app: hello-dep
+    spec:
+      containers:
+      - image: gcr.io/google-samples/hello-app:2.0
+        imagePullPolicy: Always
+        name: hello-dep
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          httpGet:
+             path: /
+             port: 8080
+             initialDelaySeconds: 5
+             periodSeconds: 5
+             successThreshold: 1
+```
+`maxUnavailable` is an optional field that specifies the maximum number of Pods that can be unavailable during the update process. The value can be an absolute number (for example, 5) or a percentage of desired Pods (for example, 10%). The absolute number is calculated from percentage by rounding down. The value cannot be 0 if maxSurge is 0. The default value is 25%.
+
+`maxSurge` is an optional field that specifies the maximum number of Pods that can be created over the desired number of Pods
+
+`initialDelaySeconds`: Number of seconds after the container has started before readiness probes are initiated.
+
+`periodSeconds`: How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
+
+`timeoutSeconds`: Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1.
+
+`successThreshold`: Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness. Minimum value is 1.
+
+`failureThreshold`: When a Pod starts and the probe fails, Kubernetes will try failureThreshold times before giving up. Giving up in case of liveness probe means restarting the Pod. In case of readiness probe the Pod will be marked Unready. Defaults to 3. Minimum value is 1.
 
 ## Horizontal scaling
 
