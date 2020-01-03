@@ -11,6 +11,8 @@
   <!-- Theme: Defaults -->
   <link rel="stylesheet" href="https://unpkg.com/docsify-themeable/dist/css/theme-defaults.css">
   <link rel="stylesheet" href="https://unpkg.com/prism-themes/themes/prism-ghcolors.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css">
+
 
   <style>
     :root {
@@ -34,18 +36,7 @@
 
 <body>
   <div id="app">Please wait...</div>
-  <script>
-    window.$docsify = {
-      name: 'The IT things I learned',
-      repo: 'https://github.com/wahyd4/knowledge-mind-mapping',
-      loadSidebar: true,
-      subMaxLevel: 3,
-      formatUpdated: '{MM}/{DD} {HH}:{mm}',
-      coverpage: false,
-      homepage: 'README.md',
-      ga: 'UA-5243064-19'
-    }
-  </script>
+  <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-go.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-java.min.js"></script>
@@ -54,6 +45,32 @@
   <script src="//unpkg.com/prismjs/components/prism-javascript.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/ga.min.js"></script>
+  <script>
+    var num = 0;
+    mermaid.initialize({ startOnLoad: false });
+    window.$docsify = {
+      name: 'The IT things I learned',
+      repo: 'https://github.com/wahyd4/knowledge-mind-mapping',
+      loadSidebar: true,
+      subMaxLevel: 3,
+      formatUpdated: '{MM}/{DD} {HH}:{mm}',
+      coverpage: false,
+      homepage: 'README.md',
+      ga: 'UA-5243064-19',
+      markdown: {
+        renderer: {
+          code: function(code, lang) {
+            if (lang === "mermaid") {
+              return (
+                '<div class="mermaid">' + mermaid.render('mermaid-svg-' + num++, code) + "</div>"
+              );
+            }
+            return this.origin.code.apply(this, arguments);
+          }
+        }
+      }
+    }
+  </script>
 </body>
 
 </html>

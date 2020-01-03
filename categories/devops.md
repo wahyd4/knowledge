@@ -30,9 +30,9 @@ A(("Code commit")) -->B1["CI job"]
 B1 -->C["New Docker Image"]
 C --Update Kubernetes template--> D[New Kubernetes manifest Yaml]
 D --Git commit-->E[Deployment Repo]
-E --Self trigger--> F((Deploy to Kubernetes))
+E --Self trigger--> F((Deploy to K8s))
 F --Manual/Auto trigger--> G[Update manifest]
-G --> H((Deploy Next environment))
+G --> H((Deploy to Next env))
 ```
 
 ## Automation tools
