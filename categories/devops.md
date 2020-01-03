@@ -48,7 +48,9 @@ Chef enables you to manage and scale cloud infrastructure with no downtime or in
 Chef running a `chef-client` on each node to be a runner to install applications on remote server. The client can use both `pull` and `push` modes to to communication.
 
 More:
-* Chef vs ansible: <https://www.chef.io/ansible/>
+
+- Chef vs ansible: <https://www.chef.io/ansible/>
+
 ### Ansible
 
 #### What is Ansible
