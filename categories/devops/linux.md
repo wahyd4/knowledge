@@ -158,6 +158,30 @@ You can specify more options
 192.168.0.216:/nfs-folder   /to-local-folder    nfs    defaults,proto=tcp,port=2049    0 0
 ```
 
+## Popular Distributions
+
+### Debian
+### Ubuntu
+
+### Manjaro
+
+### Fedora
+
+Fedora is the main project, and it’s a community-based, free distro focused on quick releases of new features and functionality.
+
+### CentOS
+
+CentOS is basically the community version of Redhat. So it’s pretty much identical, but it is free and support comes from the community as opposed to Redhat itself.
+
+### RHEL (RedHat Enterprise Linux)
+
+![redhat](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/redhat.webp)
+
+
+RHEL is the corporate version based on the progress of that project, and it has slower releases, comes with support, and isn’t free.
+
+### Arch Linux
+
 ## Package manager
 
 * [snap](https://snapcraft.io/)
