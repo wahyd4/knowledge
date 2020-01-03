@@ -6,9 +6,12 @@
 - RDS
 
 # CI
+
+## Platforms
 - Jenkins
 - Gitlab CI
 - Travis
+- Buildkite
 
 # Everything is code
 - Infrastructure as code
@@ -17,6 +20,20 @@
 
 # CD
 ![OSI Models](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/iac.png)
+
+## An example CI/CD flow
+
+```mermaid
+graph TB
+
+A(("Code commit")) -->B1["CI job"]
+B1 -->C["New Docker Image"]
+C --Update Kubernetes template--> D[New Kubernetes manifest Yaml]
+D --Git commit-->E[Deployment Repo]
+E --Self trigger--> F((Deploy to Kubernetes))
+F --Manual/Auto trigger--> G[Update manifest]
+G --> H((Deploy Next environment))
+```
 
 ## Automation tools
 
