@@ -87,6 +87,39 @@ kubectl get ingress #get ingresses
 kubectl get hpa # get horizontal auto scaling policies
 kubectl get all # get all kinds of units
 kubectl get secrets <secret-id> -o yaml #view a secret details with yaml format, fields are encrypted with base64
+# List all Secrets currently in use by a pod
+kubectl get pods -o json | jq '.items[].spec.containers[].env[]?.valueFrom.secretKeyRef.name' | grep -v null | sort | uniq
+
+# List Events sorted by timestamp
+kubectl get events --sort-by=.metadata.creationTimestamp
+
+kubectl run -i --tty busybox --image=busybox -- sh  # Run pod as interactive shell
+kubectl run nginx --image=nginx --restart=Never -n
+mynamespace                                         # Run pod nginx in a specific namespace
+kubectl run nginx --image=nginx --restart=Never     # Run pod nginx and write its spec into a file called pod.yaml
+--dry-run -o yaml > pod.yaml
+
+kubectl attach my-pod -i                            # Attach to Running Container
+
+kubectl top pod POD_NAME --containers               # Show metrics for a given pod and its containers
+
+kubectl config view -o jsonpath='{.users[].name}'    # display the first user
+kubectl config view -o jsonpath='{.users[*].name}'   # get a list of users
+kubectl config get-contexts                          # display list of contexts
+kubectl config current-context                       # display the current-context
+kubectl config use-context my-cluster-name           # set the default context to my-cluster-name
+
+# add a new cluster to your kubeconf that supports basic auth
+kubectl config set-credentials kubeuser/foo.kubernetes.com --username=kubeuser --password=kubepassword
+
+# permanently save the namespace for all subsequent kubectl commands in that context.
+kubectl config set-context --current --namespace=ggckad-s2
+
+# set a context utilizing a specific username and namespace.
+kubectl config set-context gce --user=cluster-admin --namespace=foo \
+  && kubectl config use-context gce
+
+kubectl config unset users.foo                       # delete user foo
 
 ```
 
