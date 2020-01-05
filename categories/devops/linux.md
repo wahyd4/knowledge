@@ -48,6 +48,11 @@ For example, you can run a backup of all your user accounts
 # at 5 a.m every week with:
 # 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
 ```
+#### Check cron jobs logs
+
+```bash
+grep CRON /var/log/syslog
+```
 
 #### Cron job expression
 
@@ -114,10 +119,12 @@ cat /etc/debian_version
 ```
 
 ### htop
-  like top, but more
+
+like top, but more
 
 #### mosh
-  auto reconnect ssh
+
+auto reconnect ssh
 
 ### show last something time
 
@@ -169,7 +176,6 @@ file 2.flv
 file 3.flv
 ```
 
-
 ### Curl
 
 Curl is a very popular and powerful HTTP client, there is also another very good tool called `httpie` written in Python which is even eaiser to use.
@@ -207,6 +213,19 @@ You can specify more options
 ```
 192.168.0.216:/nfs-folder   /to-local-folder    nfs    defaults,proto=tcp,port=2049    0 0
 ```
+
+### Rsync
+
+Sync folders and files between folders and hosts
+
+#### sync folders between hosts
+
+```bash
+rsync -avz --exclude downloads --exclude 'some-folder' /mnt rsync://user@192.168.1.2/rsync/ -v -c
+```
+
+You can export `RSYNC_PASSWORD` to pass password to the command.
+
 
 ## Popular Distributions
 
