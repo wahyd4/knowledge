@@ -18,6 +18,13 @@ ssh-add ~/.ssh/id_rsa
 
 ssh-copy-id user@ip -p 22222
 ```
+
+### Add user to the sudo group
+
+```bash
+usermod -aG sudo youruser
+```
+
 ### IP table
 
 ### Cron job
@@ -231,6 +238,11 @@ rsync -avz --exclude downloads --exclude 'some-folder' /mnt rsync://user@192.168
 
 You can export `RSYNC_PASSWORD` to pass password to the command.
 
+#### Check rsync logs
+
+```bash
+grep -ir rsync /var/log
+```
 
 ## Popular Distributions
 
