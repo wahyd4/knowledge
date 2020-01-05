@@ -218,6 +218,11 @@ You can specify more options
 
 Sync folders and files between folders and hosts
 
+### sync between directories
+
+```bash
+rsync -avzh /root/rpmpkgs /tmp/backups/
+```
 #### sync folders between hosts
 
 ```bash
