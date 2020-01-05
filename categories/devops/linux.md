@@ -18,9 +18,47 @@ ssh-add ~/.ssh/id_rsa
 
 ssh-copy-id user@ip -p 22222
 ```
-
 ### IP table
+
 ### Cron job
+
+List cron jobs for current user
+
+```bash
+crontab -l
+```
+
+List cron jobs for some user
+
+```bash
+crontab -u user -l
+```
+
+Edit cron jobs
+
+```bash
+crontab -e
+```
+
+#### An example cron job
+
+For example, you can run a backup of all your user accounts
+
+```bash
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+```
+
+#### Cron job expression
+
+`MIN HOUR DOM MON DOW`
+
+Field    Description    Allowed Value
+MIN      Minute field    0 to 59
+HOUR     Hour field      0 to 23
+DOM      Day of Month    1-31
+MON      Month field     1-12
+DOW      Day Of Week     0-6
 
 ### PS
 ```bash
