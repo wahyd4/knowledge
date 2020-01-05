@@ -1,11 +1,4 @@
-# AWS
-- EC2
-- EC2 container
-- Cloudfront
-- S3
-- RDS
-
-# CI
+## CI
 
 ## Platforms
 - Jenkins
@@ -18,10 +11,10 @@
 - CI config as code
 - Dockerfile
 
-# CD
+## CD
 ![OSI Models](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/iac.png)
 
-## An example CI/CD flow
+### An example CI/CD flow
 
 ```mermaid
 graph TB
@@ -74,7 +67,7 @@ Terraform use a declarative language to describe the current state of infrastruc
 Terraform is more about declare the resources/services requirements, rather than install softwares and libraries on remote server.
 
 
-### Basic steps
+#### Basic steps
 ```bash
 # go to the folder which stores the environment credentials
 terraform init # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
@@ -83,24 +76,24 @@ terraform plan # Kind of try run, you will what kind of changes you will have
 terraform apply # Apply changes to cluster
 ```
 
-# HA High Availability
+## HA High Availability
 - LB - haproxy
 - Keepalived -- vrrp
 	- Nginx + Keepalived
 - Heartbeat
 
-# Network
+## Network
 - IP
 	- Private IP Addresses
 		- 10.0.0.0 – 10.255.255.255
 		- 172.16.0.0 – 172.31.255.255
 		- 192.168.0.0 – 192.168.255.255
 
-## OSI Model( 7 layers network)
+### OSI Model( 7 layers network)
 
 ![OSI Models](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/osi-model.png)
 
-## CIDR blocks
+### CIDR blocks
 
 [Wikipedia](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
 
@@ -140,8 +133,9 @@ terraform apply # Apply changes to cluster
 |a.0.0.0/1|+127.255.255.255|128.0.0.0|2,147,483,648|231|128 A|a = 0, 128|
 |0.0.0.0/0|+255.255.255.255|0.0.0.0|4,294,967,296|232|256 A| |
 
-# tools
-## git
+## tools
+
+### git
 	- cherrypick
 	- rebase
 	- commit
@@ -166,9 +160,10 @@ terraform apply # Apply changes to cluster
 	- mv Rename/move files and folder with git history records
 
       e.g. git mv -k ./a/b ./c/d   option `k` would avoid the "can not move directory into itself" error.
-## oh-my-zsh
-## IDE/tools
+### oh-my-zsh
+
+### IDE/tools
 	- Intellij
 	- vscode
 
-## Security
+### Security
