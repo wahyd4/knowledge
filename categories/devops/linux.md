@@ -7,6 +7,18 @@ Do not use default `22` port
 ```bash
 ssh user@ip -p 22222
 ```
+
+Login without password
+
+```bash
+# adds private key identities to the authentication agent
+ssh-add ~/.ssh/id_rsa
+
+# use locally available keys to authorise logins on a remote machine
+
+ssh-copy-id user@ip -p 22222
+```
+
 ### IP table
 ### Cron job
 
