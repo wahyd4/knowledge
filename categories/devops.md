@@ -1,12 +1,12 @@
 ## CI
 
-## Platforms
+### Platforms
 - Jenkins
 - Gitlab CI
 - Travis
 - Buildkite
 
-# Everything is code
+## Everything is code
 - Infrastructure as code
 - CI config as code
 - Dockerfile
@@ -76,7 +76,7 @@ terraform plan # Kind of try run, you will what kind of changes you will have
 terraform apply # Apply changes to cluster
 ```
 
-## HA High Availability
+## HA(High Availability)
 - LB - haproxy
 - Keepalived -- vrrp
 	- Nginx + Keepalived
@@ -163,7 +163,9 @@ terraform apply # Apply changes to cluster
 ### oh-my-zsh
 
 ### IDE/tools
-	- Intellij
-	- vscode
 
-### Security
+- Intellij
+- vscode
+
+
+## Security
