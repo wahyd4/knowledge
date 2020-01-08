@@ -26,15 +26,16 @@ You describe a desired state in a Deployment, and the Deployment Controller chan
     A ReplicaSet’s purpose is to maintain a stable set of replica Pods running at any given time. As such, it is often used to guarantee the availability of a specified number of identical Pods.
 ### Service rolling update
 ### DaemonSet
-  - running a cluster storage daemon, such as ·glusterd`, `ceph`, on each node
+  - running a cluster storage daemon, such as `glusterd`, `ceph`, on each node
   - running a logs collection daemon on every node, such as `fluentd` or logstash.
-  - running a node monitoring daemon on every node, such as Prometheus Node Exporter, collectd, New Relic agent, or Ganglia gmond.
+  - running a node monitoring daemon on every node, such as Prometheus Node Exporter, collectd, New Relic agent.
 ### StatefulSets
   - Ordered, graceful deployment and scaling
   - Stable, persistent storage.
   - Stable, unique network identifiers.
   - Ordered, graceful deletion and termination.
 ### Proxy
+
 ### DNS
   - service.namespace
 ### Secrets
@@ -99,7 +100,7 @@ mynamespace                                         # Run pod nginx in a specifi
 kubectl run nginx --image=nginx --restart=Never     # Run pod nginx and write its spec into a file called pod.yaml
 --dry-run -o yaml > pod.yaml
 
-kubectl attach my-pod -i                            # Attach to Running Container
+kubectl attach my-pod -i                            # Attach to Running Container and get the current running process
 
 kubectl top pod POD_NAME --containers               # Show metrics for a given pod and its containers
 
@@ -122,6 +123,16 @@ kubectl config set-context gce --user=cluster-admin --namespace=foo \
 kubectl config unset users.foo                       # delete user foo
 
 ```
+
+### Some explanation
+
+#### kubectl exec with attach
+
+The main difference is in the process you interact with in the container:
+
+`exec`: any one you want to create
+
+`attach`: the one currently running (no choice)
 
 ## Kubernetes port forward
 
