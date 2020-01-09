@@ -358,9 +358,9 @@ func main() {
 }
 ```
 
-# commands
+## commands
 
-## test
+### test
 
 - go test ./...
     -  run all tests in current directory and all of its subdirectories
@@ -378,6 +378,23 @@ REPL stands for read eval print loop, basically it just like the irb in Ruby.
 Wiki: <https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop>
 
 * gore <https://github.com/motemen/gore>
+
+# Some code snippets
+
+## defer would still run after panic
+
+```go
+package main
+func main() {
+	for {
+		defer func() {
+			for {
+			}
+		}()
+		panic("yolo")
+	}
+}
+```
 
 # Useful links
 * [Go best practice](https://github.com/golang/go/wiki/CodeReviewComments)
