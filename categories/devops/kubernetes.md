@@ -3,19 +3,23 @@
 ## Terminology
 
 ### Pod
-  - Single container
-  - Multiple containers
-      - share ip
-      - share volumes
+
+- Single container
+- Multiple containers
+    - share ip
+    - share volumes
+
 ### Node
 
 Basically is a Kubernetes client or agent which runs a bunch of pods.
 
 ### Service
-  - ClusterIP (default)
-  - NodePort （ access by port）
-  - LoadBalancer (external ip)
-  - ExternalName dns
+
+- ClusterIP (default)
+- NodePort （ access by port）
+- LoadBalancer (external ip)
+- ExternalName dns
+
 ### Deployment
 
 A Deployment provides declarative updates for Pods and ReplicaSets.
@@ -23,23 +27,115 @@ A Deployment provides declarative updates for Pods and ReplicaSets.
 You describe a desired state in a Deployment, and the Deployment Controller changes the actual state to the desired state at a controlled rate. You can define Deployments to create new ReplicaSets, or to remove existing Deployments and adopt all their resources with new Deployments.
 
 ### Replica Set
-    A ReplicaSet’s purpose is to maintain a stable set of replica Pods running at any given time. As such, it is often used to guarantee the availability of a specified number of identical Pods.
+
+A ReplicaSet’s purpose is to maintain a stable set of replica Pods running at any given time. As such, it is often used to guarantee the availability of a specified number of identical Pods.
+
 ### Service rolling update
+
 ### DaemonSet
   - running a cluster storage daemon, such as `glusterd`, `ceph`, on each node
   - running a logs collection daemon on every node, such as `fluentd` or logstash.
   - running a node monitoring daemon on every node, such as Prometheus Node Exporter, collectd, New Relic agent.
-### StatefulSets
+
+### StatefulSet
+
+![statefulset](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/statefulset.png)
+
+StatefulSets represent a set of pods with unique, persistent identities and stable hostnames. The state information and other resilient data for any given StatefulSet Pod is maintained in persistent disk storage associated with the StatefulSet.
+
+StatefulSets are designed to deploy stateful applications and clustered applications that save data to persistent storage, such as Google Compute Engine persistent disks. StatefulSets are suitable for deploying Kafka, MySQL, Redis, ZooKeeper, and other applications needing unique, persistent identities and stable hostnames. For stateless applications, use Deployments.
+
+#### Key features
+
   - Ordered, graceful deployment and scaling
   - Stable, persistent storage.
   - Stable, unique network identifiers.
   - Ordered, graceful deletion and termination.
+
+#### An example
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  ports:
+  - port: 80
+    name: web
+  clusterIP: None
+  selector:
+    app: nginx
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: web
+spec:
+  selector:
+    matchLabels:
+      app: nginx # Label selector that determines which Pods belong to the StatefulSet
+                 # Must match spec: template: metadata: labels
+  serviceName: "nginx"
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: nginx # Pod template's label selector
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: nginx
+        image: gcr.io/google_containers/nginx-slim:0.8
+        ports:
+        - containerPort: 80
+          name: web
+        volumeMounts:
+        - name: www
+          mountPath: /usr/share/nginx/html
+  volumeClaimTemplates:
+  - metadata:
+      name: www
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
+```
+
+#### Update Statefulset
+
+To decide how to handle updates, StatefulSets use a update strategy defined in spec: updateStrategy. There are two strategies, OnDelete and RollingUpdate:
+
+- `OnDelete` does not automatically delete and recreate Pods when the object's configuration is changed. Instead, you must manually delete the old Pods to cause the controller to create updated Pods.
+
+- `RollingUpdate` automatically deletes and recreates Pods when the object's configuration is changed. New Pods must be in Running and Ready states before their predecessors are deleted. With this strategy, changing the Pod specification automatically triggers a rollout. This is the default update strategy for StatefulSets.
+
+StatefulSets update Pods in reverse ordinal order. You can monitor update rollouts by running the following command:
+
+```bash
+kubectl rollout status statefulset [STATEFULSET_NAME]
+```
+#### Partitioning rolling updates
+
+When you partition an update, all Pods with an ordinal greater than or equal to the partition value are updated when you update the StatefulSet’s Pod specification. Pods with an ordinal less than the partition value are not updated and, even if they are deleted, are recreated using the previous version of the specification. If the partition value is greater than the number of replicas, the updates are not propagated to the Pods.
+
 ### Proxy
 
+Creates a proxy server or application-level gateway between localhost and the Kubernetes API Server. It also allows
+serving static content over specified HTTP path. All incoming data enters through one port and gets forwarded to the
+remote kubernetes API Server port, except for the path matching the static content path.
+
 ### DNS
+
   - service.namespace
+
 ### Secrets
-    For storing keys, credentials and certificates. For instance: database token, 3rd party API keys.
+
+For storing keys, credentials and certificates. For instance: database token, 3rd party API keys.
+
 ### Persistent volumes
 
 - Available
@@ -62,7 +158,9 @@ Links:
 * [Kubernetes NodePort vs LoadBalancer vs Ingress? When should I use what?](https://medium.com/google-cloud/kubernetes-nodeport-vs-loadbalancer-vs-ingress-when-should-i-use-what-922f010849e0)
 
 ## Zero down time deployment
+
 Set strategy type to `RollingUpdate` instead of `Recreate`
+
 ```yaml
 spec:
   replicas: 1
@@ -296,6 +394,7 @@ spec:
 ## Horizontal scaling
 
 ### V1
+
 ```yaml
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
@@ -313,6 +412,7 @@ spec:
 ```
 
 ### V2
+
 ```yaml
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
