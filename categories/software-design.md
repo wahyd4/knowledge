@@ -95,6 +95,17 @@ In his book "Object Oriented Software Construction," Betrand Meyer introduced th
 - [https://github.com/iluwatar/java-design-patterns](https://github.com/iluwatar/java-design-patterns)
 
 
+# How to do Data Migration
+
+1. Add logic to support both new and old data structures
+
+2. Add Logic should read both old and new data but only write data to new schema/structure
+
+2. Then migrate the old data schema to new one
+
+3. Last, delete the logic which handle the old data schema.
+
+
 # Some tips
 
 - concurrency vs parallelism
