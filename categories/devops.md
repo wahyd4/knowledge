@@ -17,7 +17,34 @@
 - Use Docker container for each stage, which means to need to install various dependencies on agents
 - Scale up/down(On-demand) agents when needed to save costs.
 
-### A sample jenkins job configuration file
+### A simple jenkins job configuration file
+
+```
+pipeline {
+    agent none
+    stages {
+        stage('Back-end') {
+            agent {
+                docker { image 'maven:3-alpine' }
+            }
+            steps {
+                sh 'mvn --version'
+            }
+        }
+        stage('Front-end') {
+            agent {
+                docker { image 'node:7-alpine' }
+            }
+            steps {
+                sh 'node --version'
+            }
+        }
+    }
+}
+```
+
+
+### A more comprehensive jenkins pipeline
 
 From <https://github.com/GoogleCloudPlatform/continuous-deployment-on-kubernetes/blob/master/sample-app/Jenkinsfile>
 
