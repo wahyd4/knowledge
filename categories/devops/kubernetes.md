@@ -163,9 +163,6 @@ Through its lifecycle, a Pod can attain following states:
 
 - `Pending`: The pod is accepted by the Kubernetes system but its container(s) is/are not created yet.
 
-- `Initialising`: The docker images of the pods are been pulling and initialising
-
-- `ContainerCreating`: The Pod is been creating
 
 - `Running`: The pod is scheduled on a node and all its containers are created and at-least one container is in Running state.
 
