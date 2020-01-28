@@ -157,6 +157,24 @@ For storing keys, credentials and certificates. For instance: database token, 3r
 Links:
 * [Kubernetes NodePort vs LoadBalancer vs Ingress? When should I use what?](https://medium.com/google-cloud/kubernetes-nodeport-vs-loadbalancer-vs-ingress-when-should-i-use-what-922f010849e0)
 
+## Kubernetes pod lifecycle
+
+Through its lifecycle, a Pod can attain following states:
+
+- `Pending`: The pod is accepted by the Kubernetes system but its container(s) is/are not created yet.
+
+- `Initialising`: The docker images of the pods are been pulling and initialising
+
+- `ContainerCreating`: The Pod is been creating
+
+- `Running`: The pod is scheduled on a node and all its containers are created and at-least one container is in Running state.
+
+- `Succeeded`: All container(s) in the Pod have exited with status 0 and will not be restarted.
+
+- `Failed`: All container(s) of the Pod have exited and at least one container has returned a non-zero status.
+
+- `CrashLoopBackoff`: The container fails to start and is tried again and again.
+
 ## Zero down time deployment
 
 Set strategy type to `RollingUpdate` instead of `Recreate`
