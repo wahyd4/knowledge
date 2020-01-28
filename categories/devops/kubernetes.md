@@ -163,7 +163,6 @@ Through its lifecycle, a Pod can attain following states:
 
 - `Pending`: The pod is accepted by the Kubernetes system but its container(s) is/are not created yet.
 
-
 - `Running`: The pod is scheduled on a node and all its containers are created and at-least one container is in Running state.
 
 - `Succeeded`: All container(s) in the Pod have exited with status 0 and will not be restarted.
@@ -171,6 +170,19 @@ Through its lifecycle, a Pod can attain following states:
 - `Failed`: All container(s) of the Pod have exited and at least one container has returned a non-zero status.
 
 - `CrashLoopBackoff`: The container fails to start and is tried again and again.
+
+
+### Flow chart of running a pod
+
+![running a pod](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/running-a-pod.png)
+
+Chart from: <https://blog.heptio.com/core-kubernetes-jazz-improv-over-orchestration-a7903ea92ca>
+
+## Kubernetes termination lifecycle
+
+![termination lifecycle](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/terminate-pod.jpg)
+
+Chart from: <https://dzone.com/articles/kubernetes-lifecycle-of-a-pod>
 
 ## Zero down time deployment
 
