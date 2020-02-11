@@ -210,6 +210,47 @@ readinessProbe:
 Links:
 * [Kubernetes NodePort vs LoadBalancer vs Ingress? When should I use what?](https://medium.com/google-cloud/kubernetes-nodeport-vs-loadbalancer-vs-ingress-when-should-i-use-what-922f010849e0)
 
+## Kubernetes components
+
+A Kubernetes cluster consists of a set of worker machines, called nodes, that run containerized applications. Every cluster has at least one worker node.
+
+The worker node(s) host the pods that are the components of the application. The Control Plane manages the worker nodes and the pods in the cluster. In production environments, the Control Plane usually runs across multiple computers and a cluster usually runs multiple nodes, providing fault-tolerance and high availability.
+
+![Components of kubernetes](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/components-of-kubernetes.png)
+
+### Components
+
+#### Control Plane Components
+
+- `kube-apiserver` The API server is a component of the Kubernetes control plane that exposes the Kubernetes API. The API server is the front end for the Kubernetes control plane
+- `etcd` Consistent and highly-available key value store used as Kubernetes’ backing store for all cluster data.
+- `kube-scheduler` Control Plane component that watches for newly created pods with no assigned node, and selects a node for them to run on
+- `kube-controller-manager` Control Plane component that runs controller processes. These controllers include:
+
+  * Node Controller: Responsible for noticing and responding when nodes go down.
+  * Replication Controller: Responsible for maintaining the correct number of pods for every replication controller object in the system.
+  * Endpoints Controller: Populates the Endpoints object (that is, joins Services & Pods).
+  * Service Account & Token Controllers: Create default accounts and API access tokens for new namespaces.
+- `cloud-controller-manager` runs controllers that interact with the underlying cloud providers
+
+#### Node Components
+
+Node components run on every node, maintaining running pods and providing the Kubernetes runtime environment.
+
+- `kubelet` An agent that runs on each node in the cluster. It makes sure that containers are running in a pod. The kubelet takes a set of PodSpecs that are provided through various mechanisms and ensures that the containers described in those PodSpecs are running and healthy.
+- `kube-proxy` kube-proxy is a network proxy that runs on each node in your cluster, implementing part of the Kubernetes Service concept. kube-proxy maintains network rules on nodes. These network rules allow network communication to your Pods from network sessions inside or outside of your cluster.
+kube-proxy uses the operating system packet filtering layer if there is one and it’s available. Otherwise, kube-proxy forwards the traffic itself.
+- `Container Runtime` The container runtime is the software that is responsible for running containers.
+
+#### Addons
+
+Addons use Kubernetes resources (DaemonSet, Deployment, etc) to implement cluster features. Because these are providing cluster-level features, namespaced resources for addons belong within the kube-system namespace
+
+- `DNS` While the other addons are not strictly required, all Kubernetes clusters should have cluster DNS, as many examples rely on it. Cluster DNS is a DNS server, in addition to the other DNS server(s) in your environment, which serves DNS records for Kubernetes services
+- `Web UI (Dashboard)` Dashboard is a general purpose, web-based UI for Kubernetes clusters.
+- Container Resource Monitoring Container Resource Monitoring records generic time-series metrics about containers in a central database, and provides a UI for browsing that data.
+- Cluster-level Logging A cluster-level logging mechanism is responsible for saving container logs to a central log store with search/browsing interface.
+
 ## Kubernetes pod lifecycle
 
 Through its lifecycle, a Pod can attain following states:
@@ -622,3 +663,8 @@ k3s is intended to be a fully compliant Kubernetes distribution with the followi
     * CoreDNS
     * CNI
     * Host utilities (iptables, socat, etc)
+
+
+## Links
+
+- https://kubernetes.io/docs/concepts/overview/components
