@@ -265,8 +265,20 @@ Through its lifecycle, a Pod can attain following states:
 
 - `CrashLoopBackoff`: The container fails to start and is tried again and again.
 
+## Creating Highly Available clusters with kubeadm
 
-### Flow chart of running a pod
+### With stacked control plane nodes
+
+- `Init first control plane` kubeadm init --control-plane-endpoint "LOAD_BALANCER_DNS:LOAD_BALANCER_PORT" --upload-certs
+-  `Join the rest control planes` kubeadm join 192.168.0.200:6443 --token 9vr73a.a8uxyaju799qwdjv --discovery-token-ca-cert-hash sha256:7c2e69131a36ae2a042a339b33381c6d0d43887e2de83720eff5359e26aec866 --control-plane --certificate-key f8902e114ef118304e561c3ecd4d0b543adc226b7a07f675f56564185ffe0c07
+
+### External etcd nodes
+
+Setting up a cluster with external etcd nodes is similar to the procedure used for stacked etcd with the exception that you should setup etcd first, and you should pass the etcd information in the kubeadm config file.
+
+
+
+## Flow chart of running a pod
 
 ![running a pod](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/running-a-pod.png)
 
