@@ -248,8 +248,8 @@ Addons use Kubernetes resources (DaemonSet, Deployment, etc) to implement cluste
 
 - `DNS` While the other addons are not strictly required, all Kubernetes clusters should have cluster DNS, as many examples rely on it. Cluster DNS is a DNS server, in addition to the other DNS server(s) in your environment, which serves DNS records for Kubernetes services
 - `Web UI (Dashboard)` Dashboard is a general purpose, web-based UI for Kubernetes clusters.
-- Container Resource Monitoring Container Resource Monitoring records generic time-series metrics about containers in a central database, and provides a UI for browsing that data.
-- Cluster-level Logging A cluster-level logging mechanism is responsible for saving container logs to a central log store with search/browsing interface.
+- `Container Resource Monitoring` Container Resource Monitoring records generic time-series metrics about containers in a central database, and provides a UI for browsing that data.
+- `Cluster-level Logging` A cluster-level logging mechanism is responsible for saving container logs to a central log store with search/browsing interface.
 
 ## Kubernetes pod lifecycle
 
