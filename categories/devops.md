@@ -337,3 +337,8 @@ terraform apply # Apply changes to cluster
 
 
 ## Security
+
+
+### Mutual TLS authentication
+
+![CTLS](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/ctls.png)

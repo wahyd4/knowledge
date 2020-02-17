@@ -395,6 +395,13 @@ func main() {
 	}
 }
 ```
+## Some interesting mistakes
+
+### Do not reuse HTTP request when retrying
+
+See more information: https://stackoverflow.com/questions/55385894/http-contentlength-99-with-body-length-0
+
+
 
 # Useful links
 * [Go best practice](https://github.com/golang/go/wiki/CodeReviewComments)
