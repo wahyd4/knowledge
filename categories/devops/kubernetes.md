@@ -9,6 +9,14 @@
     - share ip
     - share volumes
 
+#### Information you get when list pods
+
+```bash
+➜ k get pods
+NAME                                    READY   STATUS      RESTARTS   AGE
+cloud-sql-proxy-66d-71222342354s        1/1     Running     0          42d
+```
+
 ### Node
 
 Basically is a Kubernetes client or agent which runs a bunch of pods.
@@ -151,6 +159,18 @@ For storing keys, credentials and certificates. For instance: database token, 3r
 
 The `kubelet` is the primary “node agent” that runs on each node. It can register the node with the apiserver using one of: the hostname; a flag to override the hostname; or specific logic for a cloud provider. The `kubelet` works in terms of a PodSpec
 
+### CRD(CustomResourceDefinitions)
+
+The CustomResourceDefinition API resource allows you to define custom resources. Defining a CRD object creates a new custom resource with a name and schema that you specify. The Kubernetes API serves and handles the storage of your custom resource.
+
+| RDs | Aggregated API|
+|---|---|
+| Do not require programming. Users can choose any language for a CRD controller. |	Requires programming in Go and building binary and image. Users can choose any language for a CRD controller.|
+| No additional service to run; CRs are handled by API Server. | An additional service to create and that could fail.|
+| No ongoing support once the CRD is created. Any bug fixes are picked up as part of normal Kubernetes Master upgrades. |	May need to periodically pickup bug fixes from upstream and rebuild and update the Aggregated APIserver. |
+| No need to handle multiple versions of your API. For example: when you control the client for this resource, you can upgrade it in sync with the API. |	You need to handle multiple versions of your API, for example: when developing an extension to share with the world. |
+
+
 ### Liveness vs Readiness
 
 #### Liveness
@@ -275,7 +295,6 @@ Through its lifecycle, a Pod can attain following states:
 ### External etcd nodes
 
 Setting up a cluster with external etcd nodes is similar to the procedure used for stacked etcd with the exception that you should setup etcd first, and you should pass the etcd information in the kubeadm config file.
-
 
 
 ## Flow chart of running a pod
