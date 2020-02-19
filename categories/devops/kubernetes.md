@@ -41,9 +41,12 @@ A ReplicaSet’s purpose is to maintain a stable set of replica Pods running at 
 ### Service rolling update
 
 ### DaemonSet
-  - running a cluster storage daemon, such as `glusterd`, `ceph`, on each node
-  - running a logs collection daemon on every node, such as `fluentd` or logstash.
-  - running a node monitoring daemon on every node, such as Prometheus Node Exporter, collectd, New Relic agent.
+
+Running that pod on every node.
+
+- running a cluster storage daemon, such as `glusterd`, `ceph`, on each node
+- running a logs collection daemon on every node, such as `fluentd` or logstash.
+- running a node monitoring daemon on every node, such as Prometheus Node Exporter, collectd, New Relic agent.
 
 ### StatefulSet
 
