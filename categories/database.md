@@ -75,7 +75,24 @@ CREATE USER youruser WITH ENCRYPTED PASSWORD 'yourpass';
 GRANT ALL PRIVILEGES ON DATABASE yourdbname TO youruser;
 ```
 
-## Postgres trigger example
+### Queries
+
+#### Query with json field
+
+```sql
+select count(*), arguments ->> 'SomeProp', arguments -> 'FirstLevel' ->> 'SecondLevel'  from jobs group by arguments ->> 'SomeProp', arguments -> 'FirstLevel' ->> 'SecondLevel'
+```
+### Group by
+
+```sql
+select job_ids from (
+	select count(*) as c, string_agg(cast(job_id as varchar),',') as job_ids, args ->> 'ResourceID' args -> 'Measurement' ->> 'Property'
+	from  jobs
+	group by args ->> 'ResourceID',  args -> 'Measurement' ->> 'Property'
+) as f1 where c > 1;
+```
+
+### Postgres trigger example
 
 Giving we have a table called users, and the columns are:
 ```bash
