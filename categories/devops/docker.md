@@ -33,23 +33,45 @@ Docker Engine uses the following namespaces on Linux:
 - `IPC` namespace for managing access to IPC resources.
 - `MNT` namespace for managing filesystem mount points.
 - `UTS` namespace for isolating kernel and version identifiers.
+- `USER` namespaces is a feature of Linux that can be used to separate the user IDs and group IDs between the host and containers. It can provide a better isolation and security: the privileged user root in the container can be mapped to a non-privileged user on the host.
 
-### Cgroups
+#### How to see a docker container's namespaces
+
+```bash
+> docker inspect 195de1a4b33c | grep Pid
+
+	"Pid": 1496,
+	"PidMode": "",
+	"PidsLimit": null,
+
+> cd /proc/1496
+> ls
+
+attr       auxv    clear_refs  comm             cpuset  environ  fd      gid_map  limits    map_files  mem        mounts      net  numa_maps  oom_score      pagemap      personality  root   schedstat  setgroups  smaps_rollup  stat   status   task    timerslack_ns  wchan
+autogroup  cgroup  cmdline     coredump_filter  cwd     exe      fdinfo  io       loginuid  maps       mountinfo  mountstats  ns   oom_adj    oom_score_adj  patch_state  projid_map   sched  sessionid  smaps      stack         statm  syscall  timers  uid_map
+
+> cd ns
+> ls
+
+cgroup  ipc  mnt  net  pid  pid_for_children  user  uts
+
+```
+
+### cgroups
 
 ![cgroups](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/cgroups.png)
 
-
-Docker also makes use of kernel control groups for resource allocation and isolation. A cgroup limits an application to a specific set of resources. Control groups allow Docker Engine to share available hardware resources to containers and optionally enforce limits and constraints.
+Control Groups are a Linux feature for organizing processes in hierarchical groups and applying resources limits to them. Docker also makes use of kernel control groups for resource allocation and isolation. A cgroup limits an application to a specific set of resources. Control groups allow Docker Engine to share available hardware resources to containers and optionally enforce limits and constraints.
 Docker Engine uses the following cgroups:
 
-- Memory cgroup for managing accounting, limits and notifications.
-- HugeTBL cgroup for accounting usage of huge pages by process group.
-- CPU group for managing user / system CPU time and usage.
-- CPUSet cgroup for binding a group to specific CPU. Useful for real time applications and NUMA systems with localized memory per CPU.
-- BlkIO cgroup for measuring & limiting amount of blckIO by group.
-- net_cls and net_prio cgroup for tagging the traffic control.
-- Devices cgroup for reading / writing access devices.
-- Freezer cgroup for freezing a group. Useful for cluster batch scheduling, process migration and debugging without affecting prtrace.
+- `Memory` cgroup for managing accounting, limits and notifications.
+- `HugeTBL` cgroup for accounting usage of huge pages by process group.
+- `CPU` cgroup for managing user / system CPU time and usage.
+- `CPUSet` cgroup for binding a group to specific CPU. Useful for real time applications and NUMA systems with localized memory per CPU.
+- `BlkIO` cgroup for measuring & limiting amount of blckIO by group.
+- `net_cls` and net_prio cgroup for tagging the traffic control.
+- `Devices` cgroup for reading / writing access devices.
+- `Freezer` cgroup for freezing a group. Useful for cluster batch scheduling, process migration and debugging without affecting prtrace.
 
 ### Union File Systems
 
