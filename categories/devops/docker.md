@@ -52,6 +52,18 @@ Docker Engine uses the following cgroups:
 
 Union file systems operate by creating layers, making them very lightweight and fast. Docker Engine uses UnionFS to provide the building blocks for containers. Docker Engine can use multiple UnionFS variants, including AUFS, btrfs, vfs, and devicemapper.
 
+### Container Format
+
+Docker Engine combines the namespaces, control groups and UnionFS into a wrapper called a container format. The default container format is libcontainer.
+### Security
+
+Docker Engine makes use of `AppArmor`, `Seccomp`, `Capabilities` kernel features for security purposes.
+
+- `AppArmor` allows to restrict programs capabilities with per-program profiles.
+- `Seccomp` used for filtering syscalls issued by a program.
+- `Capabilties` for performing permission checks.
+
+
 ### Docker VS VM
 
 ![Docker vs VM](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/container.png)
