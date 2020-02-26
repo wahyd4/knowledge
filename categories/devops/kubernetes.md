@@ -703,3 +703,4 @@ k3s is intended to be a fully compliant Kubernetes distribution with the followi
 
 - https://kubernetes.io/docs/concepts/overview/components
 - [Writing a Custom Controller: Extending the Functionality of Your Cluster [I] - Aaron Levy](https://www.youtube.com/watch?v=_BuqPMlXfpE)
+- [kubectl docs](https://kubectl.docs.kubernetes.io/)
