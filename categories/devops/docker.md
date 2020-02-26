@@ -36,6 +36,9 @@ Docker Engine uses the following namespaces on Linux:
 
 ### Cgroups
 
+![cgroups](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/cgroups.png)
+
+
 Docker also makes use of kernel control groups for resource allocation and isolation. A cgroup limits an application to a specific set of resources. Control groups allow Docker Engine to share available hardware resources to containers and optionally enforce limits and constraints.
 Docker Engine uses the following cgroups:
 
@@ -49,6 +52,9 @@ Docker Engine uses the following cgroups:
 - Freezer cgroup for freezing a group. Useful for cluster batch scheduling, process migration and debugging without affecting prtrace.
 
 ### Union File Systems
+
+![filesystem](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/assets/images/docker-filesystem.png)
+
 
 Union file systems operate by creating layers, making them very lightweight and fast. Docker Engine uses UnionFS to provide the building blocks for containers. Docker Engine can use multiple UnionFS variants, including AUFS, btrfs, vfs, and devicemapper.
 
