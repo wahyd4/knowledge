@@ -200,3 +200,22 @@ In short no need add manual `finally` block to close resources.
 When you saw some error like this `SSL handshake exception: “Algorithm constraints check failed: MD5withRSA”`, probably you used `MD5` as message digest when generate a CA. You should regenerate a new CA using `sha1`, because the `MD5` has been found to be insecure.
 
 Some more info <https://stackoverflow.com/questions/21218217/ssl-handshake-exception-algorithm-constraints-check-failed-md5withrsa>
+
+### Monotonic clock
+
+`Note`: You can go to the `go` page to check out more background knowledge
+
+```java
+long startTime = System.nanoTime();
+// ... the code being measured ...
+long estimatedTime = System.nanoTime() - startTime;
+
+```
+
+Some code which uses the wall clock
+
+```java
+long start = System.currentTimeMillis();
+// Do something exceptional
+long elapsed = System.currentTimeMillis() - start;
+```

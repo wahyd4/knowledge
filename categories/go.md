@@ -186,6 +186,29 @@ return p.count
 // more readable
 ```
 
+## Monotonic Clocks
+
+Operating systems provide both a `wall clock`, which is subject to changes for clock synchronization, and a `monotonic clock`, which is not. The general rule is that the wall clock is for telling time and the monotonic clock is for measuring time. Rather than split the API, in this package the Time returned by time.Now contains both a wall clock reading and a monotonic clock reading; later time-telling operations use the wall clock reading, but later time-measuring operations, specifically comparisons and subtractions, use the monotonic clock reading.
+
+For example, this code always computes a positive elapsed time of approximately 20 milliseconds, even if the wall clock is changed during the operation being timed:
+
+```go
+start := time.Now()
+... operation that takes 20 milliseconds ...
+t := time.Now()
+elapsed := t.Sub(start)
+```
+
+### wall clock
+
+This clock is subject to potential variations. For example, if it is synchronized with NTP (Network Time Protocol). In this case after synchronization, the local clock of our server can jump backward or forward in time. So measuring a duration from the wall-clock can be biased.
+
+### Monotonic clock
+
+we have a guarantee that the time always moves forward and will not be impacted by variations leading to jumps in time.
+
+Therefore, if we have to measure durations, we must use the monotonic-clock. This rule of thumb is only valid for local duration measurements though. Indeed, the monotonic-clocks of two different servers are by definition not synchronized. So, measuring a distributed execution based on these clocks will not be accurate.
+
 ## Frameworks
 
 ### db
