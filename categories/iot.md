@@ -23,7 +23,7 @@ The most important aspect of pub/sub is the decoupling of the publisher of the m
 
 * **Synchronization decoupling**: Operations on both components do not need to be interrupted during publishing or receiving.
 
-> In summary, the pub/sub model removes direct communication between the publisher of the message and the recipient/subscriber. The filtering activity of the broker makes it possible to control which client/subscriber receives which message. The decoupling has three dimensions: space, time, and synchronization.
+!> In summary, the pub/sub model removes direct communication between the publisher of the message and the recipient/subscriber. The filtering activity of the broker makes it possible to control which client/subscriber receives which message. The decoupling has three dimensions: space, time, and synchronization.
 
 MQTT embodies all the aspects of pub/sub that we’ve mentioned:
 

@@ -149,7 +149,7 @@ func main() {
 
 ### RWMutex
 !> A RWMutex is a reader/writer mutual exclusion lock. The lock can be held by an arbitrary number of readers or a single writer. The zero value for a RWMutex is an unlocked mutex.
-!> In other words, readers don't have to wait for each other. They only have to wait for writers holding the lock.
+In other words, readers don't have to wait for each other. They only have to wait for writers holding the lock.
 
 ### string literals
 
