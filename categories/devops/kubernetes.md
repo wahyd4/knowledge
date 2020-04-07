@@ -375,6 +375,8 @@ kubectl config set-context gce --user=cluster-admin --namespace=foo \
 
 kubectl config unset users.foo                       # delete user foo
 
+kubectl describe quota # Check quota for current namespace
+
 ```
 
 ### Some explanation
