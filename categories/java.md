@@ -1,13 +1,17 @@
 ## Java GC
-- GC types
+
+### GC types
+
 	- Serial GC
 	- Parallel GC
 	- CMS GC
 	- G1 GC
-- Object type
+
+### Object type
+
 	- Young generation  minor GC
 	- Old generation  full GC
-- System.gc()
+	- System.gc()
 
 ## JVM
 
@@ -61,7 +65,14 @@
 - Ant
 	- task based
 
+## Composition or inheritance
+
+Think of containment as a has a relationship. A car "has an" engine, a person "has a" name, etc.
+
+Think of inheritance as an is a relationship. A car "is a" vehicle, a person "is a" mammal, etc.
+
 ## Useful tips
+
 ### Iterate map
 	- for (Map.Entry<String, String> entry : map.entrySet()) { }
 ###  List to array

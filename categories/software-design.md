@@ -1,5 +1,5 @@
 
-# Refactoring
+## Refactoring
 
 - when to refactor
 
@@ -11,11 +11,19 @@
 	- temporary variable
 	- coupling
 
-# OOP
+## OOP
+
+Object-oriented programming (or OOP) is a paradigm or pattern of programming whereby the solution to a programming problem is modelled as a collection of collaborating objects. Objects collaborate by sending messages to each other. It is most suitable for managing large, complex problems.
+
+The four principles of object-oriented programming are
+- `encapsulation` Object encapsulates data and the functions that operate on that data
+- `abstraction` You don't need to what happened under the hood, just know how to use the public methods is enough.
+- `inheritance`  Sharing common behaviours
+- `polymorphism` `Polymorphism means that when an object receives a message, the correct method is called, based on the object’s class. That method may belong to the parent, or it may be one that is customized for this class.`
 
 - Polymorphism
-
 	- Code to interface, not an implementation
+
 - Composition over inheritance
 
 	- objects have high cohesion and low coupling with other objects
@@ -29,7 +37,7 @@
 	- Interface segregation
 	- Dependency inversion
 
-# Functional programming
+## Functional programming
 
 - pure functions
 
@@ -42,20 +50,20 @@
 - avoid side effects
 
 
-# Serverless
+## Serverless
 
 - Lambda
 
 	- A **lambda** is just an anonymous function - a function defined with no name
 
-# Closure
+## Closure
 
 - a function value that references variables from outside its body
 	- In Javascript, not all anonymous function are lamdba, and vise verse
 
-# Event Sourcing
+## Event Sourcing
 
-## Kafka
+### Kafka
 
 Apache Kafka is a distributed streaming platform
 
@@ -68,7 +76,7 @@ There are 4 core APIs in kafka:
 * Streams API
 * Connector API
 
-# Command Query Responsibility Segregation (CQRS)
+## Command Query Responsibility Segregation (CQRS)
 
 Every changes you made to the system is a event, events are been persisted and can be replayed to generate the materialized view.
 
@@ -78,24 +86,24 @@ In his book "Object Oriented Software Construction," Betrand Meyer introduced th
 
 - [Reference 2: Introducing the Command Query Responsibility Segregation Pattern](https://msdn.microsoft.com/en-us/library/jj591573.aspx)
 
-# UML
+## UML
 
 - many_to_many
 - one to many
 
 ![example](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/Knowledge.mindnode/resources/18F27D1D-F7CB-4E8B-BE47-90847CAEBC91.png)
 
-## One UML example
+### One UML example
 
 ![uml](https://raw.githubusercontent.com/wahyd4/knowledge-mind-mapping/master/Knowledge.mindnode/resources/656E28B3-4CCA-40F8-A95A-0F901E61AFA1.png)
 
 
-# Java Design pattern
+## Java Design pattern
 
 - [https://github.com/iluwatar/java-design-patterns](https://github.com/iluwatar/java-design-patterns)
 
 
-# How to do Data Migration
+## How to do Data Migration
 
 1. Add logic to support both new and old data structures
 
@@ -106,7 +114,7 @@ In his book "Object Oriented Software Construction," Betrand Meyer introduced th
 3. Last, delete the logic which handle the old data schema.
 
 
-# Some tips
+## Some tips
 
 - concurrency vs parallelism
 
