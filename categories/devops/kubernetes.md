@@ -223,6 +223,34 @@ readinessProbe:
   periodSeconds: 5
 ```
 
+### Taints and Tolerations
+
+Node affinity, described here, is a property of pods that attracts them to a set of nodes (either as a preference or a hard requirement). Taints are the opposite -- they allow a node to repel a set of pods.
+
+Taints and tolerations work together to ensure that pods are not scheduled onto inappropriate nodes.
+
+```bash
+kubectl taint nodes node1 key=value:NoSchedule
+```
+By default, no pod will be deploy to the node `node1`
+
+You specify a toleration for a pod in the PodSpec. Both of the following tolerations “match” the taint created by the kubectl taint line above, and thus a pod with either toleration would be able to schedule onto node1:
+
+```yaml
+tolerations:
+- key: "key"
+  operator: "Equal"
+  value: "value"
+  effect: "NoSchedule"
+```
+
+```yaml
+tolerations:
+- key: "key"
+  operator: "Exists"
+  effect: "NoSchedule"
+```
+
 ## Several ways to access a service inside Kubernetes cluster
 
 * ClusterIP, Can only be accessed inside the cluster. You can access inside `kubectl proxy`
@@ -376,6 +404,9 @@ kubectl config set-context gce --user=cluster-admin --namespace=foo \
 kubectl config unset users.foo                       # delete user foo
 
 kubectl describe quota # Check quota for current namespace
+
+kubectl taint nodes node1 key=value:NoSchedule # add node taint
+kubectl taint nodes node1 key:NoSchedule- # remove a taint from a node
 
 ```
 
