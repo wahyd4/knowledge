@@ -683,6 +683,50 @@ kubectl edit SampleDB/example-database # manually change some settings
 - Custom operators list: https://gist.github.com/philips/a97a143546c87b86b870a82a753db14c
 - Prometheus operator: https://coreos.com/blog/the-prometheus-operator.html
 
+## Debug on kubernetes
+
+### Examine previous pod logs
+
+View the container logs before crash
+
+```bash
+kubectl logs --previous ${POD_NAME} ${CONTAINER_NAME}
+```
+
+### Debug a pod 
+
+Let's assume you have a pod called test-app, but it doesn't have a shell or utility attched to it.
+
+```bash
+kubectl debug -it ephemeral-demo --image=busybox --target=test-app
+```
+This can attach busybox to the target pod, so you can debug your pod with tools.
+
+### Copy a pod
+
+Sometimes Pod configuration options make it difficult to troubleshoot in certain situations, so we can copy the orginal pod to our debugging pod
+
+```bash
+# source pod
+kubectl run myapp --image=busybox --restart=Never -- sleep 1d
+
+kubectl debug myapp -it --image=ubuntu --share-processes --copy-to=myapp-debug
+```
+The --share-processes allows the containers in this Pod to see processes from the other containers in the Pod.
+
+### Copy a pod with changing command or the image
+
+```bash
+# You can use kubectl debug to create a copy of this Pod with the command changed to an interactive shell:
+
+kubectl debug myapp -it --copy-to=myapp-debug --container=myapp -- sh
+
+kubectl debug myapp --copy-to=myapp-debug --set-image=*=ubuntu
+```
+The syntax of --set-image uses the same container_name=image syntax as kubectl set image. *=ubuntu means change the image of all containers to ubuntu.
+
+
+
 ## Tools
 
 ### Kubectx and kubens
