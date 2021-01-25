@@ -75,6 +75,12 @@ CREATE USER youruser WITH ENCRYPTED PASSWORD 'yourpass';
 GRANT ALL PRIVILEGES ON DATABASE yourdbname TO youruser;
 ```
 
+### Update
+
+```sql
+UPDATE badges set type = 'onetype' where label != ''
+```
+
 ### Queries
 
 #### Query with json field
@@ -90,6 +96,37 @@ select job_ids from (
 	from  jobs
 	group by args ->> 'ResourceID',  args -> 'Measurement' ->> 'Property'
 ) as f1 where c > 1;
+```
+#### Group by time
+
+To get data entries grouped by time (minute/hour/day/month)
+
+```sql
+select
+  date_trunc('day', created_at), -- or hour, day, week, month, year
+  count(1)
+from view_records
+group by 1
+```
+
+If you want to group time base on a specific timezone and the timestamp field you choose contains that information.
+
+```sql
+select
+  date_trunc('day', created_at AT TIME ZONE 'Australia/Melbourne'), -- or hour, day, week, month, year
+  count(1)
+from view_records
+group by 1
+```
+
+If the time field doesn't have timezone information, we will need to ask postgres to intercept the time to the timezone we would like to use
+
+```sql
+select
+  date_trunc('day', created_at AT TIME ZONE 'Australia/Melbourne') AT TIME ZONE 'China/Beijing')
+  count(1)
+from view_records
+group by 1
 ```
 
 ### Postgres trigger example
