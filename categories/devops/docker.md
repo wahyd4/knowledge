@@ -132,7 +132,68 @@ Docker Engine makes use of `AppArmor`, `Seccomp`, `Capabilities` kernel features
 
 ## Tips
 
-- difference between `cmd` and `entrypoint`
-- difference between `copy` and `add`
+### difference between `cmd` and `entrypoint`
+
+	`cmd` can be override but entrypoint can't.
+
+### difference between `copy` and `add`
 
 	Basically they are similar, copy files and folder to destination. While ADD has some features (like local-only tar extraction and remote URL support) that are not immediately obvious. Consequently, the best use for ADD is local tar file auto-extraction into the image, as in ADD rootfs.tar.xz /.
+
+### Reduce docker image size
+
+- Use the small base docker image, e.g. `alpine`, `jessie` etc.
+- Change docker image to multi stage, only copy the runtime files and dependencies to the final stage
+
+A example of node js one
+
+**Before**
+
+```Dockerfile
+FROM node:alpine as build	FROM node as build
+
+WORKDIR /app
+
+# copy the app, note .dockerignore	# copy the app, note .dockerignore
+COPY . /app
+
+RUN apk update \
+  && apk add --no-cache git python alpine-sdk\
+  && npm ci \
+  && npm run build \
+  && npm run generate
+
+EXPOSE 3000
+
+CMD [ "npm", "start" ]
+
+```
+**After**
+
+```Dockerfile
+
+FROM node as build
+
+WORKDIR /app
+
+# copy the app, note .dockerignore
+COPY . /app
+
+RUN npm ci \
+  && npm run build \
+  && npm run generate \
+  && npm prune --production \
+  && curl -sf https://gobinaries.com/tj/node-prune | sh \
+  && node-prune
+
+FROM node:alpine
+
+WORKDIR /app
+
+# copy from build image
+COPY --from=build /app ./
+
+EXPOSE 3000
+
+CMD [ "npm", "start" ]
+```
