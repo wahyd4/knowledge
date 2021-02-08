@@ -197,3 +197,14 @@ EXPOSE 3000
 
 CMD [ "npm", "start" ]
 ```
+
+### Inspect image's files
+
+First, just create a container instead of running a container.
+Then export the entire container to a zip file.
+
+```
+docker create --name=some-name image:tag
+docker export tmp_$$ > some-name.zip
+docker rm some-name
+```
