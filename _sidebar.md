@@ -3,6 +3,7 @@
 - [Home](/)
 - [Go](categories/go.md)
 - [Java](categories/java.md)
+- [Java](categories/kotlin.md)
 - [JavaScript](categories/javascript.md)
 - [Ruby](categories/ruby.md)
 - [Interview](categories/interview.md)
