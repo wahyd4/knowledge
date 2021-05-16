@@ -2,6 +2,38 @@
 
 ## Useful commands and tips
 
+### Create a systemd service
+
+Create a file called `/etc/systemd/system/hello.service`
+
+```
+[Unit]
+Description=Hello Service
+After=network.target
+StartLimitIntervalSec=0
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=centos
+ExecStart=/app/hello.sh
+
+[Install]
+WantedBy=multi-user.target
+```
+Automatically start the service when boot the vm
+
+```bash
+sudo systemctl enable hello
+```
+
+Start service
+
+```bash
+sudo systemctl start hello
+```
+Learned from [here](https://medium.com/@benmorel/creating-a-linux-service-with-systemd-611b5c8b91d6)
+
 ### ssh
 Do not use default `22` port
 ```bash
