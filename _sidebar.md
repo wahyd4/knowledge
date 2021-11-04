@@ -20,6 +20,7 @@
     - [Linux](categories/devops/linux.md)
     - [Google Cloud Platform](categories/devops/gcp.md)
     - [AWS](categories/devops/aws.md)
+    - [More tools](categories/devops/more-tools.md)
 - [Web](categories/web.md)
 - [IoT](categories/iot.md)
 - [Fintech](categories/fintech.md)
