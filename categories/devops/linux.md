@@ -276,6 +276,200 @@ You can export `RSYNC_PASSWORD` to pass password to the command.
 grep -ir rsync /var/log
 ```
 
+### Check debian version
+
+```bash
+cat /etc/issue
+
+cat /etc/debian_version
+```
+
+### Debian error bash: netstat: command not found
+
+```bash
+apt-get install net-tools
+```
+
+### Create CPU loads
+
+```bash
+dd if=/dev/urandom | gzip -9 >> /dev/null &
+```
+
+### Kill the load process
+
+```bash
+kill %1
+```
+
+### IP Address
+
+```bash
+sudo /sbin/ifconfig
+
+ip address # new command
+```
+
+### IP range, CIDR
+
+```bash
+# ip range  ,CIDR network
+
+/16 /20 /24
+```
+
+### trace route tool
+
+```bash
+sudo apt-get install traceroute
+
+sudo traceroute google.com -I
+```
+
+### linux list all the service with status
+
+```bash
+systemctl --full --type service --all
+```
+
+### To see details about the RAM installed on your VM, run the following command:
+
+```bash
+sudo dmidecode -t 17
+```
+
+### verify the number of processors, run the following command:
+
+```bash
+nproc
+```
+
+### CPU information
+
+```bash
+lscpu
+
+# Check cpu platform
+
+cat /proc/cpuinfo
+```
+
+### Running application in background with screen
+
+```bash
+sudo apt-get install -y screen
+
+sudo screen -S mcs java -Xms1G -Xmx7G -d64 -jar /home/minecraft/minecraft_server.1.11.2.jar nogui
+
+detach
+
+# To detach the screen terminal, press Ctrl+A, D. The terminal continues to run in the background. To reattach the terminal, run the following command:
+
+sudo screen -r mcs
+
+# send commands to screen
+
+sudo screen -r -X stuff '/stop\n'
+```
+
+### ApacheBench To place a load on the load balancer, run the following command
+
+```bash
+ab -n 50000 -c 1000 http://ip
+```
+
+### Mount drives
+
+```bash
+1. Find what the drive is called
+You'll need to know what the drive is called to mount it. To do that fire off one of the following (ranked in order of my preference):
+lsblk
+sudo blkid
+sudo fdisk -l
+You're looking for a partition that should look something like: /dev/sdb1. The more disks you have the higher the letter this is likely to be. Anyway, find it and remember what it's called.
+2. Create a mount point (optional)
+This needs to be mounted into the filesystem somewhere. You can usually use /mnt/ if you're being lazy and nothing else is mounted there but otherwise you'll want to create a new directory:
+sudo  mkdir /media/usb
+3. Mount!
+sudo mount /dev/sdb1 /media/usb
+When you're done, just fire off:
+sudo umount /media/usb
+```
+
+### Change dns server
+
+```bash
+vim /etc/resolv.conf
+```
+
+### Last boot
+
+```bash
+last reboot | less
+last -x shutdown
+```
+
+### Ports scanner
+
+```bash
+#nmap scan ports
+nmap -v 203.192.94.53
+```
+
+### Check and turn off swap
+
+```bash
+# swap
+
+1. Identify configured swap devices and files with cat /proc/swaps.
+2. Turn off all swap devices and files with swapoff -a.
+3. Remove any matching reference found in /etc/fstab.
+4. Optional: Destroy any swap devices or files found in step 1 to prevent their reuse. Due to your concerns about leaking sensitive information, you may wish to consider performing some sort of secure wipe.
+```
+
+### Reset timezone
+
+```bash
+sudo dpkg-reconfigure tzdata
+```
+
+### List all timezones
+
+```bash
+ls /usr/share/zoneinfo/
+
+# check ssh failed retries
+
+grep "Failed password" /var/log/auth.log
+```
+
+### Linux disk analyse
+
+```bash
+###  Ncdu analyse linux disk
+
+ncdu
+```
+
+### VIM setup
+
+```bash
+# https://github.com/amix/vimrc
+
+git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+sh ~/.vim_runtime/install_awesome_vimrc.sh
+```
+
+### check ssh failed retries
+
+```bash
+grep "Failed password" /var/log/auth.log
+
+# In order to display extra information about the failed SSH logins, issue the command as shown in the below example.
+
+ egrep "Failed|Failure" /var/log/auth.log
+```
+
 ## Popular Distributions
 
 ### Debian
