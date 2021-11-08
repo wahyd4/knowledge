@@ -2,6 +2,14 @@
 
 ## Useful commands and tips
 
+### Split strings
+
+```bash
+# split ip list string by comma and get first one
+export IP=127.0.0.2,127.0.0.3
+echo $IP | cut -d ',' -f1
+```
+
 ### Create a systemd service
 
 Create a file called `/etc/systemd/system/hello.service`
