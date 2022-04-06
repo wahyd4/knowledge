@@ -38,11 +38,17 @@
     .sidebar-nav > ul > li > a {
       font-weight: 700;
     }
-    .sidebar > .sidebar-nav > ul li.active > a {
-      border-right: 8px solid;
+    .sidebar > .sidebar-nav > ul>li.active {
+      margin-left: 0;
+    }
+    .sidebar > .sidebar-nav > ul>li.active > a, ul.app-sub-sidebar > li.active > a {
+      border-right: 1px solid #42b98321;
+      border-left: 5px solid var(--theme-color, #42b983);
       font-weight: 700;
       background: #42b98321;
+      padding-left: 10px;
     }
+
     .sidebar .app-sub-sidebar li:before {
       content: "";
     }
