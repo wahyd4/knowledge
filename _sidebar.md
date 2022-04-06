@@ -29,3 +29,4 @@
 - [Uncategorised](categories/uncategorised.md)
 - English
   - [Business English Speaking for Professionals](categories/english/business-spoken-english.md)
+- [![Page Views Count](https://badges.toozhao.com/badges/01FZYTZNWV1J7WRKETC0GY0CXP/blue.svg)](https://badges.toozhao.com/stats/01FZYTZNWV1J7WRKETC0GY0CXP "Get your own page views count badge on badges.toozhao.com")
