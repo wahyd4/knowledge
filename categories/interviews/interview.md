@@ -18,6 +18,16 @@
 * Keep interation with interviewers, and ask if the answer is good enough, do you want me to dive deeper?
 
 
+## Live coding
+
+### Steps
+
+* Clarify the inputs and outputs
+* Briefly write overall steps
+* I will always write a test case before implementing it
+* Calculate the Algorithm complexity, O(n)
+* Keep talking to the intreviewer and keep interactions
+
 ## resources
 
 - [https://github.com/kdn251/interviews](https://github.com/kdn251/interviews)
