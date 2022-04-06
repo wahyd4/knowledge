@@ -27,6 +27,5 @@
 - [Microservice](categories/microservice.md)
 - [Success Team Work](categories/team-work.md)
 - [Uncategorised](categories/uncategorised.md)
-- English
-  - [Business English Speaking for Professionals](categories/english/business-spoken-english.md)
+- [English](categories/english/business-spoken-english.md)
 - [![Page Views Count](https://badges.toozhao.com/badges/junv-knowledge/green.svg)](https://badges.toozhao.com/stats/junv-knowledge "Get your own page views count badge on badges.toozhao.com")
