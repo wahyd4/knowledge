@@ -1,10 +1,29 @@
 # Interviews
 
+## System design
+
+### Questions to ask when you receive a question
+
+* How many users will be using it? What's the throughput we need to design for?
+* Do we need to consider accessing by users from multiple countries and regions?
+* Is this for a single tenant for multiple tenants?
+* What's the latency requirements?
+* Do we need to consider logging and montoring?
+
+### Steps to answer the question
+
+* First, briefly talk about what the high level design, the components
+* Briefly calculatt the traffic which relates to what db you choose and system architectures.
+* Talk about the DB choice and why, NOSQL or relational SQL database
+* Keep interation with interviewers, and ask if the answer is good enough, do you want me to dive deeper?
+
+
 ## resources
 
 - [https://github.com/kdn251/interviews](https://github.com/kdn251/interviews)
 
 - [5 Salary Negotiation Rules for Software Developers](https://dev.to/aershov24/5-salary-negotiation-rules-for-software-developers-get-20-on-top-of-your-market-rate-2jii)
+
 
 
 ## Some interview questions

@@ -6,7 +6,7 @@
 - [Kotlin](categories/kotlin.md)
 - [JavaScript](categories/javascript.md)
 - [Ruby](categories/ruby.md)
-- [Interview](categories/interview.md)
+- [Interview](categories/interviews/interview.md)
 - [Software Design](categories/software-design.md)
 - [Message Queue](categories/message-queue.md)
 - [Database](categories/database.md)
