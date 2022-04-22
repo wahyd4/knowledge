@@ -9,6 +9,7 @@
 - [Interview](categories/interviews/interview.md)
 - [Software Design](categories/software-design.md)
 - [Message Queue](categories/message-queue.md)
+    - [Kafka](categories/queues/kafka.md)
 - [Database](categories/database.md)
 - [Application](categories/application.md)
 - [Web Scraping](categories/web-scraping.md)
