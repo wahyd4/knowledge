@@ -8,7 +8,7 @@
 - [Ruby](categories/ruby.md)
 - [Interview](categories/interviews/interview.md)
 - [Software Design](categories/software-design.md)
-- [Message Queue](categories/queues.md)
+- [Queues](categories/queues.md)
     - [Kafka](categories/queues/kafka.md)
 - [Database](categories/database.md)
 - [Application](categories/application.md)
