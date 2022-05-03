@@ -12,6 +12,7 @@
     - [Kafka](categories/apps/kafka.md)
     - [MQTT](categories/apps/mqtt.md)
     - [Elasticsearch](categories/apps/elasticsearch.md)
+    - [etcd](categories/apps/etcd.md)
 - [Database](categories/database.md)
 - [Application](categories/application.md)
 - [Web Scraping](categories/web-scraping.md)
