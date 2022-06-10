@@ -31,6 +31,5 @@ sudo ETCDCTL_API=3 etcdctl get --prefix=true "" -w json  --endpoints=https://127
 ```
 sudo ETCDCTL_API=3 etcdctl member add server-2 --peer-urls=https://192.168.1.xxx:2380  --endpoints=https://192.168.1.xxx:2379,https://192.168.1.xxx:2379   --cacert=/etc/etcd/ca.pem   --cert=/etc/etcd/etcd.pem   --key=/etc/etcd/etcd-key.pem
 ```
-2. Prepare for the configursations for the new node, and remember to set `--initial-cluster-state` to existing
+2. Prepare for the configursations for the new node, and remember to set `--initial-cluster-state` to existing, add put all the existing nodes to `--initial-cluster` field
 3. Start the etcd service of the new node
-
